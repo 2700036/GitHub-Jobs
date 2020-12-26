@@ -1,0 +1,32 @@
+.home__page {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1900px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 9vw;
+  margin: 0 auto;
+}
+.home__page .back-to-top {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--back-to-top);
+  bottom: 50px;
+  right: 9vw;
+  cursor: pointer;
+}
+.home__page .back-to-top img {
+  height: 22px;
+  transition: 0.3s;
+}
+.home__page .back-to-top:hover img {
+  transform: translateY(4px);
+}
