@@ -1,11 +1,9 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import colors from './constants/colors';
+import Header from './components/Header/Header';
 import Home from './pages/Home';
 
-function App() {
-  console.log(colors);
+function App() {  
   return (
     <div className="App">
       <Header />

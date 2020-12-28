@@ -1,6 +1,11 @@
 import React from 'react';
+import Arrow from '../Icons/Arrow';
 import check from '../images/desktop/icon-check.svg';
+import Button from './Button/Button';
 import './searchBar.css';
+
+
+
 export default function SearchBar() {
   return (
     <form className='search__bar' >
@@ -47,7 +52,13 @@ export default function SearchBar() {
                         <span>Search</span>
                 </button>
             </div>
-            <button className="search__bar__btn btn" type="submit"><span>Search</span></button>
+            <Button
+            isLoading={false} 
+            icon={<Arrow />}
+            size='m'
+            >
+              Search
+            </Button>
         </form>
   )
 }

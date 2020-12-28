@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Button from '../components/Button/Button';
 import JobItem from '../components/JobItem';
 import SearchBar from '../components/SearchBar';
 import { timeDifference } from '../helpers/timeDiffererence';
@@ -42,7 +43,7 @@ export default function Home() {
             ))} */}
                
                </section>      
-            <button className="load__more__btn btn" >Load More</button>
+            <Button>Load More</Button>
         
 
         {scroll >= (windowHeight * 2) && (
