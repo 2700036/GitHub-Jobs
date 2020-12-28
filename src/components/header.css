@@ -13,9 +13,14 @@
 .header__backgrounds img {
   max-width: 100%;
   width: 100%;
+  border-bottom-left-radius: 80px;
 }
 .header__backgrounds .background__mobile {
   display: none;
+}
+.header__logo {
+  color: #fff;
+  font-size: 30px
 }
 .header__inner {
   display: flex;

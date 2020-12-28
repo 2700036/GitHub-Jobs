@@ -15,7 +15,7 @@
   padding: 20px 15px 20px 35px;
   font-family: inherit;
   border: 0;
-  border-right: 1px solid hsl(212, 23%, 69%);
+  border-right: 1px solid hsl(0deg 0% 88%);
   background-color: transparent;
   color: hsl(219, 29%, 14%);
   width: 100%;
@@ -79,7 +79,7 @@
   max-height: 80%;
 }
 .search__bar--inner .search__bar__full-time span.checked {
-  background-color: var(--violet);
+  background-color: rgb(96, 106, 215);
 }
 .search__bar--inner .search__bar__full-time span.checked img {
   display: flex;
@@ -128,7 +128,7 @@
     left: 9vw;
     background-color: #fff;
     width: calc(100% - 18vw);
-    box-shadow: var(--box-shadow);
+    
  }
   .search__bar--inner.visible {
     display: flex;
@@ -148,7 +148,7 @@
     right: 30px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: var(--company-site-btn);
+    color: rgb(96, 106, 215);
     font-size: 14px;
  }
   .search__bar--inner .search__bar__full-time {

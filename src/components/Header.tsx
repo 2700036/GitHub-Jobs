@@ -15,7 +15,9 @@ export default function Header() {
                 <img className="background__mobile" src={backgroundMob} alt="" />                
             </div>
             <div className="header__inner">                
-                    <img className="header__logo" src={logo} alt="DevJobs company logo" />
+                    <span className="header__logo">
+                        GitHub Jobs
+                    </span>
                 
                 <div className="header__toggle">
                     <span>
