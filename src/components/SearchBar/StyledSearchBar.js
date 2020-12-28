@@ -14,12 +14,12 @@ const StyledSearchBar = styled.form`
   height: 56px;
   z-index: 5;
   top: -28px;
-  box-shadow: 0px 3px 12px #0000003d;
+  box-shadow: 0px 5px 15px -5px #0000003d;
   & .form__control input {
     padding: 20px 15px 20px 35px;
     font-family: inherit;
     border: 0;
-    border-right: 1px solid hsl(0deg 0% 88%);
+    border-right: 1px solid rgba(158, 175, 194, 0.5);
     background-color: transparent;
     color: hsl(219, 29%, 14%);
     width: 100%;
@@ -115,21 +115,22 @@ const StyledSearchBar = styled.form`
     }
     & .search__bar--inner {
       display: flex;
-      visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+      visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
       position: absolute;
       flex-direction: column;
       overflow: hidden;
       padding: 0;
       border-radius: 5px;
-      top: ${props => props.isOpen ? '57px' : '2px'};
+      top: ${(props) => (props.isOpen ? '57px' : '32px')};
       left: 0px;
       background-color: #fff;
       width: 100%;
-      transition: top .3s ease, visibility .1s ease;
+      transition: top 0.3s ease, visibility 0.15s ease;
       z-index: -5;
-      
+      box-shadow: 0px 15px 10px -5px #0000001c;
+
       & .search__bar__location {
-        border-bottom: 1px solid hsl(212, 23%, 69%);
+        border-bottom: 1px solid rgba(158, 175, 194, 0.5);
         background-position: 25px 55%;
         padding: 0 35px 0 20px;
         height: 56px;
@@ -153,7 +154,7 @@ const StyledSearchBar = styled.form`
         }
       }
       & button {
-        display: ${props => props.isOpen ? 'block' : 'none'};
+        display: ${(props) => (props.isOpen ? 'block' : 'none')};
         width: 111px !important;
         margin: 0 auto;
       }
