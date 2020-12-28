@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../components/Button/Button';
 import JobItem from '../components/JobItem';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBar/SearchBar';
 import { timeDifference } from '../helpers/timeDiffererence';
 import arrow from '../images/up-arrow.svg';
 import './home.css';
