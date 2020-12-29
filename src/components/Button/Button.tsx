@@ -1,8 +1,12 @@
 import React from 'react';
 import Spinner from './Spinner';
-import { StyledButton } from './styled';
+import { StyledButton, StyledButtonProps } from './styled';
 
-const Button = ({ children, ...props }) => {
+interface Button extends StyledButtonProps {
+  children: string;  
+}
+
+const Button = ({ children, ...props }:Button) => {
   return (
     <StyledButton {...props}  >
       <>

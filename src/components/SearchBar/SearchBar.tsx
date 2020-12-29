@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import Arrow from '../../Icons/Arrow';
 import check from '../../images/desktop/icon-check.svg';
 import Button from '../Button/Button';
-import StyledSearchBar from './StyledSearchBar';
+import StyledSearchBar from './styled';
 // import './searchBar.css';
 
 
-export default function SearchBar({...props}) {
+export default function SearchBar() {
     const [isOpen, setIsOpen] = useState(false);
     
   return (
-    <StyledSearchBar {...{isOpen}}>
+    <StyledSearchBar isOpen={isOpen}>
       <div className='search__bar__description form__control'>
         <input
           placeholder='Filter by title, expertise...'

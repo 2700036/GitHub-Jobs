@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import colors from '../../constants/colors';
 
-const backgroundAndBorderColor = (color) => css`
+const backgroundAndBorderColor = (color:string) => css<StyledButtonProps>`
 background: ${props => props.variant === 'ghost' ? 'none' : `${color}`};
 color: ${props => props.variant === 'ghost' ? `${color}` : `#fff`};
 border-color: ${props => props.isLoading ? `${colors.black30}` : `${color}`};
@@ -18,7 +18,19 @@ const rotate = keyframes`
   }
 `;
 
-export const StyledButton = styled.button`
+export interface StyledButtonProps {
+  variant?: 'ghost' | 'none';
+  size?: 's' | 'm';
+  icon?: JSX.Element;
+  isLoading?: boolean;  
+}
+export interface StyledSpinerProps { 
+  variant?: 'ghost' | 'none';
+  size?: 's' | 'm'; 
+  isLoading?: boolean;  
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   height: ${props => props.size === 's' ? `32px` : `40px`};  
   padding: ${props => props.size === 's' ? `8px 16px` : `10px 24px`}; 
@@ -79,7 +91,7 @@ export const StyledButton = styled.button`
   
 `;
 
-export const StyledSpiner = styled.div`
+export const StyledSpiner = styled.div<StyledSpinerProps>`
   display: ${props => props.isLoading ? 'flex' : 'none'};
   position: absolute;
   width: ${props => props.size === 's' ? `0.9rem` : `1.2rem`}; 

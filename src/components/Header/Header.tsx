@@ -1,9 +1,9 @@
 import React from 'react';
 import background from '../../images/desktop/bg-pattern-header.svg';
-import backgroundMob from '../../images/mobile/bg-pattern-header.svg';
 import sun from '../../images/desktop/icon-sun.svg';
 import moon from '../../images/desktop/icon-moon.svg';
 import StyledHeader from './styled';
+
 
 
 export default function Header() {

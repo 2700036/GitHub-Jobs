@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import iconSearch from '../../images/desktop/icon-search.svg';
 import iconLocation from '../../images/desktop/icon-location.svg';
 
-const StyledSearchBar = styled.form`
+interface StyledSearchBarProps {
+  readonly isOpen: boolean;
+};
+
+const StyledSearchBar = styled.form<StyledSearchBarProps>`
   display: flex;
   position: relative;
   align-items: center;

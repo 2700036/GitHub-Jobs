@@ -1,7 +1,9 @@
 import React from "react";
-import { StyledSpiner } from "./styled";
+import { StyledSpiner, StyledSpinerProps } from "./styled";
 
-export default function Spinner(props) {
+
+
+export default function Spinner(props:StyledSpinerProps) {
   return (
     <StyledSpiner {...props}>
       <svg viewBox="0 0 10 10">
