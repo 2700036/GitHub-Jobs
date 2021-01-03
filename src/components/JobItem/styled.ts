@@ -47,6 +47,11 @@ const StyledJobItem = styled.div`
     position: absolute;
     bottom: 20px;
     color: rgb(148, 156, 244);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 `;
 
