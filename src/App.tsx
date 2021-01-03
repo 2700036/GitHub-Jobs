@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import gitHubJobService from './services/gitHubJobService';
 
 function App() {  
-
+  const [jobs, setJobs] = useState([]);
   useEffect(() => {
     gitHubJobService.getJobs({description: '++++'})
-    .then((jobs) => {
+    .then((res): void => {
+      if(typeof res === 'object') setJobs(res)
       console.log(jobs)
     })
     
@@ -16,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Home />
+      <Home jobs={jobs}/>
     </div>
   );
 }

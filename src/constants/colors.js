@@ -12,7 +12,7 @@ const pallete = {
 const colors = {
   accent: pallete.mainDark,
   accentDark: pallete.main,
-  accentLink: '#22847F',
+  accentLink: pallete.blueDark,
 
   main: pallete.main,
   mainDark: pallete.mainDark,  
