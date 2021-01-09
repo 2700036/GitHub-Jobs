@@ -2,21 +2,29 @@ const pallete = {
   main: 'rgb(148, 156, 244)',
   mainDark: 'rgb(96, 106, 215)',
   blueDark: 'rgb(25, 33, 46)',
-  midnight: 'rgb(18, 23, 33)',
-  white: 'rgb(255, 255, 255)',
-  grayLight: 'rgb(243, 245, 247)',
+  midnight: 'rgb(18, 23, 33)',  
+  grayLight: 'rgba(158, 175, 194, 0.5)',
   gray: 'rgb(158, 175, 194)',
   grayDark: 'rgb(109, 127, 151)',
+  white: '#fff',
+  black: '#000'
 };
 
 const colors = {
   accent: pallete.mainDark,
   accentDark: pallete.main,
   accentLink: pallete.blueDark,
-
+  blueDark: pallete.blueDark,
+  midnight: pallete.midnight,
   main: pallete.main,
-  mainDark: pallete.mainDark,  
+  second: pallete.mainDark, 
   
+  
+  gray: pallete.gray,
+  grayDark: pallete.grayDark,
+  grayLight: pallete.grayLight,
+  white: pallete.white,
+  black: pallete.black,
   black30: '#B0B2C0',
 
 };

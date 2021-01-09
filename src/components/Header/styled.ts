@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+import colors from '../../constants/colors'
+
+
 
 const StyledHeader = styled.div`
   display: flex;
@@ -18,7 +21,7 @@ const StyledHeader = styled.div`
     }
   }
   & .header__logo {
-    color: #fff;
+    color: ${colors.white};
     font-size: 30px;
   }
   & .header__inner {
@@ -46,7 +49,7 @@ const StyledHeader = styled.div`
           left: 4px;
           border: 0;
           border-radius: 50%;
-          background-color: hsl(235, 60%, 61%);
+          background-color: ${colors.second};
           transition: 0.2s;
         }
         & .active .slider {

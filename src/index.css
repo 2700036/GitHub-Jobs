@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   
 }
-
+/* 
 .btn {
   background-color: hsl(235, 60%, 61%);
   color: #fff;
@@ -36,18 +36,18 @@ body {
   background-color: transparent;
   color: hsl(235, 60%, 61%);
   border-color: hsl(235, 60%, 61%);
-}
-.load__more__btn {
+} */
+/* .load__more__btn {
   display: flex;
   align-items: center;
   margin: 0 auto 70px;
-}
-@media (max-width: 600px) {
+} */
+/* @media (max-width: 600px) {
   .load__more__btn {
     margin-bottom: 50px;
  }
-}
-@media (max-width: 600px) {
+} */
+/* @media (max-width: 600px) {
   .search__bar__btn {
     position: relative;
     height: 36px;
@@ -72,5 +72,5 @@ body {
   .search__bar__btn:hover::after {
     background-image: url('./images/desktop/icon-search.svg');
  }
-}
+} */
 

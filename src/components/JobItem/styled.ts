@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
+import colors from '../../constants/colors';
+
 
 const StyledJobItem = styled.div`
   position: relative;
-  background-color: #fff;
+  background-color: ${colors.white};
   border-radius: 5px;
   padding: 0 20px 20px;
   height: 225px;
@@ -17,7 +19,7 @@ const StyledJobItem = styled.div`
     border-radius: 10px;
     transform: translateY(-50%);
     border: 1px solid var(--border);
-    background-color: #fff;
+    background-color: ${colors.white};
     & img {
       max-width: 100%;
     };
@@ -25,7 +27,7 @@ const StyledJobItem = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgb(61, 70, 87);
+      color: ${colors.grayDark};
       width: 100%;
       height: 100%;
       font-size: 12px;
@@ -46,7 +48,7 @@ const StyledJobItem = styled.div`
     display: inline-block;
     position: absolute;
     bottom: 20px;
-    color: rgb(148, 156, 244);
+    color: ${colors.main};
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

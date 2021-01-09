@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import colors from '../../constants/colors';
 
 const StyledHome = styled.div`
   display: flex;
@@ -8,14 +9,14 @@ const StyledHome = styled.div`
   max-width: 1900px;
   width: 100%;
   min-height: 100vh;
-  padding: 0 9vw;
+  padding: 5vh 9vw;
   margin: 0 auto;
   & .back-to-top {
     display: flex;
     position: fixed;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: ${colors.white};
     height: 60px;
     width: 60px;
     border-radius: 50%;

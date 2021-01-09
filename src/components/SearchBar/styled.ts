@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import iconSearch from '../../images/desktop/icon-search.svg';
 import iconLocation from '../../images/desktop/icon-location.svg';
+import colors from '../../constants/colors';
+
 
 interface StyledSearchBarProps {
   readonly isOpen: boolean;
@@ -10,8 +12,8 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
   display: flex;
   position: relative;
   align-items: center;
-  background-color: #fff;
-  color: hsl(219, 29%, 14%);
+  background-color: ${colors.white};
+  color: ${colors.blueDark};
   padding: 0 10px;
   border-radius: 5px;
   width: 100%;
@@ -23,9 +25,9 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
     padding: 20px 15px 20px 35px;
     font-family: inherit;
     border: 0;
-    border-right: 1px solid rgba(158, 175, 194, 0.5);
+    border-right: 1px solid ${colors.grayLight};
     background-color: transparent;
-    color: hsl(219, 29%, 14%);
+    color: ${colors.blueDark};
     width: 100%;
     & :placeholder {
       font-size: 0.9em;
@@ -73,7 +75,7 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
       & span {
         cursor: pointer;
         display: flex;
-        background-color: rgba(158, 175, 194, 0.3);
+        background-color: ${colors.grayLight};
         border-radius: 2px;
         height: 15px;
         width: 15px;
@@ -85,7 +87,7 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
           max-height: 80%;
         }
         & .checked {
-          background-color: rgb(96, 106, 215);
+          background-color: ${colors.second};
           & img {
             display: flex;
           }
@@ -112,7 +114,7 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
         & svg {
           transform: scale(0.9);
           & :hover path {
-            fill: hsl(219, 29%, 14%);
+            fill: ${colors.grayDark};
           }
         }
       }
@@ -127,14 +129,14 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
       border-radius: 5px;
       top: ${(props) => (props.isOpen ? '57px' : '32px')};
       left: 0px;
-      background-color: #fff;
+      background-color: ${colors.white};
       width: 100%;
       transition: top 0.3s ease, visibility 0.15s ease;
       z-index: -5;
       box-shadow: 0px 15px 10px -5px #0000001c;
 
       & .search__bar__location {
-        border-bottom: 1px solid rgba(158, 175, 194, 0.5);
+        border-bottom: 1px solid ${colors.grayLight};
         background-position: 25px 55%;
         padding: 0 35px 0 20px;
         height: 56px;
@@ -145,7 +147,7 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
           right: 30px;
           transform: translateY(-50%);
           cursor: pointer;
-          color: rgb(96, 106, 215);
+          color: ${colors.second};
           font-size: 14px;
         }
       }
