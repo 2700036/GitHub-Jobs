@@ -1,3 +1,4 @@
+import { JobType } from './../types';
 import { getJobsTypes } from './types';
 import { baseUrl } from '../constants/constants';
 
@@ -6,7 +7,7 @@ class GitHubJobService {
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
-  getJobs({ description = '', location = '', fullTime = false }: getJobsTypes): Promise<[] | string> {
+  getJobs({ description = '', location = '', fullTime = false }: getJobsTypes) {
     const descriptionUrl: string = description.trim() ? `description=${description.replace(/ /g, '+')}` : '';
     const locationUrl: string = location.trim() ? `location=${location.replace(/ /g, '+')}` : '';
     const fullTimeUrl: string = fullTime ? `full_time=on` : '';

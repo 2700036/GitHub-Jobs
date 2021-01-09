@@ -4,18 +4,19 @@ import JobItem from '../../components/JobItem/JobItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { timeDifference } from '../../helpers/timeDiffererence';
 import arrow from '../../images/up-arrow.svg';
-import { HomePropTypes } from './types';
+
 import { JobType } from '../../types';
 import JobsContainer from '../../components/JobsContainer/JobsContainer';
 import StyledHome from './styled';
+import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 
 
 
 
-export default function Home({ jobs }: HomePropTypes) {
+export default function Home() {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [scroll, setScroll] = useState(window.pageYOffset);
-
+  const {jobs} = useGitHubJobService();
   useEffect(() => {
     function updateScrollHeight() {
       setWindowHeight(window.innerHeight);
@@ -25,7 +26,9 @@ export default function Home({ jobs }: HomePropTypes) {
     updateScrollHeight();
     return () => window.removeEventListener('scroll', updateScrollHeight);
   }, [windowHeight, scroll]);
-
+    // const isArray = (jobs: Jobs) => {
+    //   return jobs instanceof Array ? true : false
+    // }
   return (
     <StyledHome>
       <SearchBar />
