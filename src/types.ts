@@ -1,4 +1,4 @@
-import { type } from "os";
+import { type } from 'os';
 
 export type JobType = {
   id: string;
@@ -27,5 +27,20 @@ type JobsFillAction = {
   type: typeof JOBS_FILL;
   payload: Array<JobType>;
 };
+export const FULLTIME_SWITCH = 'FULLTIME_SWITCH';
+type fulltimeSwitchAction = {
+  type: typeof FULLTIME_SWITCH;
+};
+export type FieldInfo = { field: string; value: string };
+export const UPDATE_SEARCH_VALUE = 'UPDATE_SEARCH_VALUE';
+type UpdateSearchValueAction = {
+  type: typeof UPDATE_SEARCH_VALUE;
+  payload: FieldInfo;
+};
 
-export type JobsActionTypes = JobsStartFetchingAction | JobsStopFetchingAction | JobsFillAction;
+export type JobsActionTypes =
+  | JobsStartFetchingAction
+  | JobsStopFetchingAction
+  | JobsFillAction
+  | UpdateSearchValueAction
+  | fulltimeSwitchAction;

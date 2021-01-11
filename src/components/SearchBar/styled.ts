@@ -3,7 +3,6 @@ import iconSearch from '../../images/desktop/icon-search.svg';
 import iconLocation from '../../images/desktop/icon-location.svg';
 import colors from '../../constants/colors';
 
-
 interface StyledSearchBarProps {
   readonly isOpen: boolean;
 };
@@ -63,37 +62,7 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
         display: none;
       }
     }
-    & .search__bar__full-time {
-      display: flex;
-      align-items: center;
-      font-size: 15px;
-      margin: 0 10px;
-      width: 35%;
-      & small {
-        cursor: pointer;
-      }
-      & span {
-        cursor: pointer;
-        display: flex;
-        background-color: ${colors.grayLight};
-        border-radius: 2px;
-        height: 15px;
-        width: 15px;
-        margin-right: 15px;
-        & img {
-          display: none;
-          margin: auto;
-          max-width: 80%;
-          max-height: 80%;
-        }
-        & .checked {
-          background-color: ${colors.second};
-          & img {
-            display: flex;
-          }
-        }
-      }
-    }
+
   }
   @media (max-width: 600px) {
     & .form__control input {
@@ -151,14 +120,6 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
           font-size: 14px;
         }
       }
-      & .search__bar__full-time {
-        padding: 25px 0;
-        margin-left: 25px;
-        height: 56px;
-        & small > span {
-          display: inline-block;
-        }
-      }
       & button {
         display: ${(props) => (props.isOpen ? 'block' : 'none')};
         width: 111px !important;
@@ -171,4 +132,44 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
   }
 `;
 
-export default StyledSearchBar;
+export interface StyledCheckboxProps {
+  checked: boolean;    
+}
+
+const StyledCheckbox = styled.div<StyledCheckboxProps>`
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin: 0 10px;
+  width: 35%;
+  & small {
+    cursor: pointer;
+  }
+  & span {
+    cursor: pointer;
+    display: flex; 
+    background-color: ${props => props.checked ? colors.second : colors.grayLight};
+    border-radius: 2px;
+    height: 15px;
+    width: 15px;
+    margin-right: 15px;
+    & img {
+      display: ${props => props.checked ? 'flex' : 'none'};
+      margin: auto;
+      max-width: 80%;
+      max-height: 80%;
+    }    
+  }
+  @media (max-width: 600px) {    
+      border-right: 0;
+      padding: 25px 0;
+      margin-left: 25px;
+      height: 56px;
+      & small > span {
+        display: inline-block;
+      }
+  }
+
+`
+
+export {StyledSearchBar, StyledCheckbox};

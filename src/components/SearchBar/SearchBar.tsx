@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
+import { useActions } from '../../hooks/useActions';
+import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import Arrow from '../../Icons/Arrow';
-import check from '../../images/desktop/icon-check.svg';
 import Button from '../Button/Button';
-import StyledSearchBar from './styled';
+import Checkbox from './Checkbox';
+import {StyledSearchBar} from './styled';
 // import './searchBar.css';
 
-
 export default function SearchBar() {
-    const [isOpen, setIsOpen] = useState(false);
-    
+  const [isOpen, setIsOpen] = useState(false);
+  const {updateSearchField} = useActions();
+  const { description, location, fullTime, searchJobs } =  useGitHubJobService();
+  const handleInput = (target: HTMLInputElement):void => {
+    updateSearchField({field: target.name, value: target.value})
+  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    searchJobs();
+  }
+
   return (
-    <StyledSearchBar isOpen={isOpen}>
+    <StyledSearchBar isOpen={isOpen} onSubmit={handleSubmit}>
       <div className='search__bar__description form__control'>
         <input
           placeholder='Filter by title, expertise...'
           aria-label='Enter company, title, or expertise here'
-          onChange={(e) => e}
-          value={''}
+          name='description'
+          onChange={e => handleInput(e.target)}
+          value={description}
         />
         <button
           className='mobile-search-bar-deploy'
           aria-label='Button to deploy location & full time options'
-          onClick={() => setIsOpen((isOpen)=>!isOpen)}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}
           type='button'
         >
           <svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
@@ -38,17 +49,12 @@ export default function SearchBar() {
           <input
             placeholder='Filter by location...'
             aria-label='Enter desired job location'
-            onChange={(e) => e}
-            value={''}
+            name='location'
+            onChange={e => handleInput(e.target)}
+            value={location}
           />
         </div>
-        <div className='search__bar__full-time form__control'>
-          <span className={`checkbox checked`} onClick={() => ''}>
-            <img src={check} alt='Checkmark' />
-          </span>
-          <small onClick={() => ''}>Full Time</small>
-        </div>
-        
+        <Checkbox checked={fullTime}>Full Time</Checkbox>
       </div>
       <Button isLoading={false} icon={<Arrow />} size='m'>
         Search

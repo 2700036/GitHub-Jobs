@@ -1,9 +1,18 @@
-import { JobsActionTypes, JobType } from './types';
+import { JobsActionTypes, FieldInfo, Jobs } from './types';
+
+
+interface Action {
+  type: string;
+  payload: Jobs | FieldInfo;
+}
+const isFieldInfo = (payload: any): payload is FieldInfo => {
+  return (<FieldInfo>payload).field !== undefined && (<FieldInfo>payload).value !== undefined;
+};
 
 const initialState = {
   description: '',
   location: '',
-  fullTime: '',
+  fullTime: false,
   jobs: [],
   isLoading: false,
 };
@@ -16,6 +25,13 @@ export default (state = initialState, { type, payload }: any) => {
       return { ...state, isLoading: false };
     case 'JOBS_FILL':
       return { ...state, jobs: payload };
+    case 'FULLTIME_SWITCH':
+      console.log(123)
+      return { ...state, fullTime: !state.fullTime };
+    case 'UPDATE_SEARCH_VALUE':
+      if (!isFieldInfo(payload)) return state;
+      const field: string = payload.field;
+      return { ...state, [field]: payload.value };
 
     default:
       return state;
@@ -26,6 +42,6 @@ export type RootState = {
   description: string;
   location: string;
   fullTime: boolean;
-  jobs: Array<JobType>
+  jobs: Jobs;
   isLoading: boolean;
-}
+};
