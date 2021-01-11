@@ -1,13 +1,13 @@
-import { JobType } from './../types';
-import { getJobsTypes } from './types';
+import { JobType, Jobs } from './../types';
 import { baseUrl } from '../constants/constants';
+import { GitHubJobServiceInterface } from './types';
 
-class GitHubJobService {
+class GitHubJobService implements GitHubJobServiceInterface<Jobs> {
   baseUrl: string;
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
   }
-  getJobs({ description = '', location = '', fullTime = false }: getJobsTypes) {
+  getJobs({ description = '', location = '', fullTime = false}) {
     const descriptionUrl: string = description.trim() ? `description=${description.replace(/ /g, '+')}` : '';
     const locationUrl: string = location.trim() ? `location=${location.replace(/ /g, '+')}` : '';
     const fullTimeUrl: string = fullTime ? `full_time=on` : '';

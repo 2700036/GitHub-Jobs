@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type JobType = {
   id: string;
   company_logo: string;
@@ -8,7 +10,7 @@ export type JobType = {
   location: string;
 };
 
-
+export type Jobs = JobType[];
 
 export const JOBS_START_FETCHING = 'JOBS_START_FETCHING';
 type JobsStartFetchingAction = {

@@ -25,7 +25,7 @@ export default (state = initialState, { type, payload }: any) => {
 export type RootState = {
   description: string;
   location: string;
-  fullTime: string;
+  fullTime: boolean;
   jobs: Array<JobType>
   isLoading: boolean;
 }

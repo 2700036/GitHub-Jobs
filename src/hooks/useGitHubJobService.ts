@@ -1,4 +1,4 @@
-import { JobType } from './../types';
+import { Jobs } from './../types';
 import { RootState } from './../reducer';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ export const useGitHubJobService = () => {
   
   useEffect(() => {
     jobsStartFetching();
-    gitHubJobService.getJobs({}).then((res: Array<JobType>): void => {
+    gitHubJobService.getJobs({ description, location, fullTime}).then(res => {
       jobsFill(res);
     })
     .catch(err => {
