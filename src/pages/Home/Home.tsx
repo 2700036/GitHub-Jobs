@@ -23,7 +23,7 @@ export default function Home() {
     updateScrollHeight();
     return () => window.removeEventListener('scroll', updateScrollHeight);
   }, []);
-
+  const isBackToTopButtonVisible = scroll >= windowHeight * 2;
   return (
     <StyledHome>
       <SearchBar />
@@ -42,7 +42,7 @@ export default function Home() {
         ))}
       </JobsContainer>
       <Button>Load More</Button>
-      <BackToTopButton isVisible={scroll >= windowHeight * 2} />
+      <BackToTopButton isVisible={isBackToTopButtonVisible} />
     </StyledHome>
   );
 }
