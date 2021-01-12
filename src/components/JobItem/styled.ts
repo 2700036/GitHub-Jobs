@@ -1,13 +1,30 @@
 import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
 
+export interface StyledJobItemProps {
+  logo: string;
+}
 
-const StyledJobItem = styled.div`
+const StyledJobItem = styled.div<StyledJobItemProps>`
   position: relative;
   background-color: ${colors.white};
   border-radius: 5px;
   padding: 0 20px 20px;
   height: 225px;
+  & .thumbnail__image__container_bg {
+    background: ${({logo}) => logo ? `url(${logo})` : colors.white};
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: blur(40px);
+  }
+  & .thumbnail__image__container_box {
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    z-index: 2;
+  }
   & .thumbnail__image__container {
     display: flex;
     position: relative;
@@ -16,12 +33,14 @@ const StyledJobItem = styled.div`
     overflow: hidden;
     height: 70px;
     width: 70px;
+    padding: 8px;
     border-radius: 10px;
     transform: translateY(-50%);
-    border: 1px solid var(--border);
+    border: 1px solid ${colors.grayLight};
     background-color: ${colors.white};
     & img {
-      max-width: 100%;
+      max-width: 100%;      
+      object-fit: contain;
     };
     & .no-logo {
       display: flex;

@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
 import StyledJobItem from './styled';
 import { JobItemPropTypes } from './types';
-export default function JobItem({
-  logo,
-  date,
-  lengthTerm,
-  company,
-  jobTitle,
-  location,
-  
-}: JobItemPropTypes) {
-  const colors = ['#8d47ff', '#235cdf', '#daa278', '#68ab97', '#bb4643', '#e7de63'];
-  const [color] = useState(colors[Math.floor(Math.random() * colors.length)]);
-
+export default function JobItem({ logo, date, lengthTerm, company, jobTitle, location }: JobItemPropTypes) {
   return (
-    <StyledJobItem>
+    <StyledJobItem {...{logo}}>
       <div className='thumbnail__image__container'>
-        {logo && <img src={logo} alt={`${company} company logo`} />}
-        {!logo && (
-          <div className='no-logo' style={{ backgroundColor: color }}>
-            n / a
-          </div>
-        )}
+        <div className='thumbnail__image__container_bg'></div>
+        <div className='thumbnail__image__container_box'>
+          {logo && <img src={logo} alt={`${company} company logo`} />}
+          {!logo && <div className='no-logo'>n / a</div>}
+        </div>
       </div>
       <p className='thumbnail__time-type'>
         <span className='thumbnail__time'>{date}</span>
