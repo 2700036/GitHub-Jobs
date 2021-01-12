@@ -9,13 +9,11 @@ import StyledHome from './styled';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
-
-
-
 export default function Home() {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [scroll, setScroll] = useState(window.pageYOffset);
-  const {jobs} = useGitHubJobService();
+  const { jobs } = useGitHubJobService();
+
   useEffect(() => {
     function updateScrollHeight() {
       setWindowHeight(window.innerHeight);
@@ -24,29 +22,27 @@ export default function Home() {
     window.addEventListener('scroll', updateScrollHeight);
     updateScrollHeight();
     return () => window.removeEventListener('scroll', updateScrollHeight);
-  }, [windowHeight, scroll]);
+  }, []);
 
   return (
     <StyledHome>
       <SearchBar />
-      <>
-        <JobsContainer>
-          {jobs?.map((job: JobType) => (
-              <JobItem
-                key={job.id}
-                id={job.id}
-                logo={job.company_logo}
-                date={timeDifference(Date.now(), Date.parse(job.created_at))}
-                lengthTerm={job.type}
-                company={job.company}
-                jobTitle={job.title}
-                location={job.location}
-              />
-            ))}
-        </JobsContainer>
-        <Button>Load More</Button>
-        {scroll >= windowHeight * 2 && <BackToTopButton isVisible={true}/>}
-      </>
+      <JobsContainer>
+        {jobs?.map((job: JobType) => (
+          <JobItem
+            key={job.id}
+            id={job.id}
+            logo={job.company_logo}
+            date={timeDifference(Date.now(), Date.parse(job.created_at))}
+            lengthTerm={job.type}
+            company={job.company}
+            jobTitle={job.title}
+            location={job.location}
+          />
+        ))}
+      </JobsContainer>
+      <Button>Load More</Button>
+      <BackToTopButton isVisible={scroll >= windowHeight * 2} />
     </StyledHome>
   );
 }

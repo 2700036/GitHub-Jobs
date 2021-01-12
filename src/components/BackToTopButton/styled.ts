@@ -1,8 +1,10 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { BackToTopButtonProps } from './types';
 
-export const StyledBackToTopButton = styled.button`
+export const StyledBackToTopButton = styled.button<BackToTopButtonProps>`
   display: flex;
+  visibility: ${({isVisible}) => isVisible ? 'visible' : 'hidden'};
   position: fixed;
   align-items: center;
   justify-content: center;
@@ -10,14 +12,13 @@ export const StyledBackToTopButton = styled.button`
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: 2px solid var(--back-to-top);
-  bottom: ${({className}) => className?.includes('visible') ? '50px' : '-50px'};
+  border: 1px solid ${colors.main};
+  transition: bottom .5s ease, visibility 1s;
   right: 9vw;
   cursor: pointer;
-  
   & img {
     height: 22px;
-    transition: 0.3s;    
+    transition: 0.3s;
   }
   &:hover img {
     transform: translateY(4px);
@@ -25,5 +26,4 @@ export const StyledBackToTopButton = styled.button`
   visible {
     bottom: 50px !important;
   }
-
-`
+`;

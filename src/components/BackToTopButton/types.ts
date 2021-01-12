@@ -1,3 +1,3 @@
 export interface BackToTopButtonProps {
-  isVisible: boolean
+  isVisible: boolean;
 }
