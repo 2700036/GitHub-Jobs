@@ -25,8 +25,7 @@ export default (state = initialState, { type, payload }: any) => {
       return { ...state, isLoading: false };
     case 'JOBS_FILL':
       return { ...state, jobs: payload };
-    case 'FULLTIME_SWITCH':
-      console.log(123)
+    case 'FULLTIME_SWITCH':      
       return { ...state, fullTime: !state.fullTime };
     case 'UPDATE_SEARCH_VALUE':
       if (!isFieldInfo(payload)) return state;

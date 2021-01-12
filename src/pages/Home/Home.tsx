@@ -3,12 +3,11 @@ import Button from '../../components/Button/Button';
 import JobItem from '../../components/JobItem/JobItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { timeDifference } from '../../helpers/timeDiffererence';
-import arrow from '../../images/up-arrow.svg';
-
 import { JobType } from '../../types';
 import JobsContainer from '../../components/JobsContainer/JobsContainer';
 import StyledHome from './styled';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
 
 
@@ -26,9 +25,7 @@ export default function Home() {
     updateScrollHeight();
     return () => window.removeEventListener('scroll', updateScrollHeight);
   }, [windowHeight, scroll]);
-    // const isArray = (jobs: Jobs) => {
-    //   return jobs instanceof Array ? true : false
-    // }
+
   return (
     <StyledHome>
       <SearchBar />
@@ -48,16 +45,7 @@ export default function Home() {
             ))}
         </JobsContainer>
         <Button>Load More</Button>
-
-        {scroll >= windowHeight * 2 && (
-          <button
-            className='back-to-top'
-            aria-label='Button to scroll back to top of page'
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            <img src={arrow} alt='' />
-          </button>
-        )}
+        {scroll >= windowHeight * 2 && <BackToTopButton isVisible={true}/>}
       </>
     </StyledHome>
   );

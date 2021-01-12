@@ -8,8 +8,7 @@ interface CheckboxProps extends StyledCheckboxProps {
 }
 
 export default function Checkbox({ checked, children }: CheckboxProps) {
-  const {toggleFulltime} = useActions();
-  console.log(checked)
+  const {toggleFulltime} = useActions();  
   return (
     <StyledCheckbox {...{ checked }}>
       <span  onClick={toggleFulltime}>
