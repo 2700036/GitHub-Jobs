@@ -6,7 +6,7 @@ import gitHubJobService from '../services/gitHubJobService';
 import { useActions } from './useActions';
 
 export const useGitHubJobService = () => {
-  const { description, location, fullTime, jobs } = useSelector((state: RootState) => state);
+  const { description, location, fullTime, jobs, isLoading } = useSelector((state: RootState) => state);
   const { jobsStartFetching, jobsStopFetching, jobsFill } = useActions();
   
   const searchJobs = ():void => {
@@ -32,5 +32,5 @@ export const useGitHubJobService = () => {
   useEffect(() => {
     searchJobs()
   }, []);
-  return { description, location, fullTime, jobs, searchJobs };
+  return { description, location, fullTime, jobs, searchJobs, isLoading };
 };

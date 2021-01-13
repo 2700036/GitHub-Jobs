@@ -9,21 +9,10 @@ import StyledHome from './styled';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
-export default function Home() {
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const [scroll, setScroll] = useState(window.pageYOffset);
-  const { jobs } = useGitHubJobService();
 
-  useEffect(() => {
-    function updateScrollHeight() {
-      setWindowHeight(window.innerHeight);
-      setScroll(window.pageYOffset);
-    }
-    window.addEventListener('scroll', updateScrollHeight);
-    updateScrollHeight();
-    return () => window.removeEventListener('scroll', updateScrollHeight);
-  }, []);
-  const isBackToTopButtonVisible = scroll >= windowHeight * 2;
+export default function Home() {
+  
+  const { jobs } = useGitHubJobService();  
   return (
     <StyledHome>
       <SearchBar />
@@ -42,7 +31,7 @@ export default function Home() {
         ))}
       </JobsContainer>
       <Button>Load More</Button>
-      <BackToTopButton isVisible={isBackToTopButtonVisible} />
+      <BackToTopButton />
     </StyledHome>
   );
 }

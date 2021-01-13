@@ -2,14 +2,18 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import gitHubJobService from './services/gitHubJobService';
-
-function App() {  
-  
-  
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import JobDetails from './components/JobDetails/JobDetails';
+function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
-      <Home />
+      <Router>
+        <Switch>
+          <Route exact path='/' component={JobDetails} />
+          {/* <Route exact path='/:jobID' component={}/> */}
+        </Switch>
+      </Router>
     </div>
   );
 }

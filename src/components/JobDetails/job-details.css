@@ -4,7 +4,7 @@
 @media (max-width: 1050px) {
   .job__listing {
     margin: 0 4vw;
- }
+  }
 }
 .job__listing__header {
   display: flex;
@@ -49,13 +49,13 @@
 }
 .job__listing__header .header__textbox__company-redirect small {
   display: none;
-  color: rgba(255, 0, 0, .75);
+  color: rgba(255, 0, 0, 0.75);
   margin-top: 5px;
 }
 .job__listing__header .header__textbox__company-redirect.invalid a {
-  border: 1px solid rgba(255, 0, 0, .4);
-  background-color: rgba(255, 0, 0, .1);
-  color: rgba(255, 0, 0, .6);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  background-color: rgba(255, 0, 0, 0.1);
+  color: rgba(255, 0, 0, 0.6);
   pointer-events: none;
 }
 .job__listing__header .header__textbox__company-redirect.invalid small {
@@ -68,7 +68,7 @@
   align-items: center;
   height: 55px;
   padding: 0 25px;
-  background-color: rgba(148, 156, 244, .25);
+  background-color: rgba(148, 156, 244, 0.25);
   color: var(--company-site-btn);
 }
 .job__listing__header .header__textbox .btn:hover {
@@ -100,28 +100,34 @@
 .job__listing__body .body__main {
   line-height: 1.4;
 }
-.job__listing__body .body__main h1, .job__listing__body .body__main h2, .job__listing__body .body__main h3 {
+.job__listing__body .body__main h1,
+.job__listing__body .body__main h2,
+.job__listing__body .body__main h3 {
   margin: 20px 0 5px;
 }
 .job__listing__body .body__main p > strong {
   display: inline-flex;
   margin-top: 30px;
 }
-.job__listing__body .body__main ul, .job__listing__body .body__main ol {
+.job__listing__body .body__main ul,
+.job__listing__body .body__main ol {
   margin: 15px 0;
   list-style: none;
 }
-.job__listing__body .body__main ul li, .job__listing__body .body__main ol li {
+.job__listing__body .body__main ul li,
+.job__listing__body .body__main ol li {
   position: relative;
   margin: 0 50px 10px calc(50px + 1em);
 }
-.job__listing__body .body__main ul li:last-of-type, .job__listing__body .body__main ol li:last-of-type {
+.job__listing__body .body__main ul li:last-of-type,
+.job__listing__body .body__main ol li:last-of-type {
   margin-bottom: 0;
 }
-.job__listing__body .body__main ul li::before, .job__listing__body .body__main ol li::before {
+.job__listing__body .body__main ul li::before,
+.job__listing__body .body__main ol li::before {
   display: inline-block;
   position: absolute;
-  content: "\2022";
+  content: '\2022';
   color: var(--violet);
   width: 1em;
   margin-left: -1em;
@@ -137,7 +143,7 @@
 .job__listing__cta::before {
   content: '';
   position: absolute;
-  background-image: url('../images/desktop/bg-pattern-detail-footer.svg');
+  background-image: url('../../images/desktop/bg-pattern-detail-footer.svg');
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
@@ -155,7 +161,7 @@
 .job__listing__cta .cta__body ul li:last-of-type {
   margin-bottom: 0;
 }
-.job__listing__cta h1, .job__listing__cta h2, .job__listing__cta h3, .job__listing__cta h4, .job__listing__cta p > strong, .job__listing__cta a {
+.job__listing__cta h1, h2, h3, h4, p > strong, a {
   color: var(--white);
 }
 .job__listing__footer {
@@ -179,13 +185,13 @@
     flex-direction: column;
     text-align: center;
     overflow: visible;
- }
+  }
   .job__listing__header .header__textbox {
     flex-direction: column;
- }
+  }
   .job__listing__header .header__textbox__company-redirect {
     margin: 15px 0 0 0;
- }
+  }
   .job__listing__header .header__image__container {
     margin: -55px auto 20px;
     border-radius: 5px;
@@ -193,30 +199,30 @@
     height: 80px;
     width: 80px;
     background-color: #fff;
- }
+  }
 }
 @media (max-width: 600px) {
   .job__listing__body .body__heading {
     flex-direction: column;
     align-items: flex-start;
- }
+  }
   .job__listing__body .body__heading .btn {
     width: 100%;
     margin-top: 30px;
     justify-content: center;
- }
-  .job__listing__body .body__main ul li, .job__listing__body .body ol li {
+  }
+  .job__listing__body .body__main ul li, .body ol li {
     margin: 0 15px 10px calc(15px + 1em);
- }
+  }
   .job__listing__footer {
     position: relative;
     left: -4vw;
     width: calc(100% + 8vw);
- }
+  }
   .job__listing__footer .footer__textbox {
     display: none;
- }
+  }
   .job__listing__footer .btn {
     width: 100%;
- }
+  }
 }

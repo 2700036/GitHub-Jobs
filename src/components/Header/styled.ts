@@ -63,7 +63,7 @@ const StyledHeader = styled.div`
     & .header__backgrounds {
       min-height: 200px;
       & img {
-        border-bottom-left-radius: 0;
+        transform: translateX(-53px) scaleX(1.5);
       }
     }
   }

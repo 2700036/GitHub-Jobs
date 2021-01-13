@@ -6,6 +6,8 @@
   padding: 0;
   outline: none;
   font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body {
   background-color: #F3F5F7;
@@ -14,8 +16,7 @@ body {
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  
+  min-height: 100vh;  
 }
 
 
