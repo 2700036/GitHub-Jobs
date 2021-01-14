@@ -1,9 +1,11 @@
 import React from 'react';
 import { timeDifference } from '../../helpers/timeDiffererence';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
+import { JobType } from '../../types';
 import BackToTopButton from '../BackToTopButton/BackToTopButton';
 import Button from '../Button/Button';
 import { StyledJobDetails } from './styled';
+import { Props } from './types';
 
 const job = {
   company: 'Excelerate America',
@@ -22,8 +24,15 @@ const job = {
   url: 'https://jobs.github.com/positions/e55930c6-0db3-4fad-ab97-094b074a3648',
 };
 
-export default function JobDetails() {
+// const isJobType = (job: JobType | undefined): job is JobType => {
+//   return (job as JobType).company_url !== void 0
+// }
+
+export default function JobDetails({ match }: Props) {
   const { jobs, isLoading } = useGitHubJobService();
+  const jobID: string = match.params.jobID;
+  const job: JobType | undefined = jobs.find(({ id }) => id === jobID);
+
   const cleanURL = (url: string): string => {
     return (url = url && url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0]);
   };
@@ -39,9 +48,10 @@ export default function JobDetails() {
     let valid = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/gim;
     return link.match(valid) ? link.match(valid)![0] : undefined;
   };
-  
+
   return (
-    <StyledJobDetails>
+    <>
+    {job && <StyledJobDetails>
       <div className='job__listing__header'>
         <div className='header__image__container'>
           {job.company_logo && <img src={`${job.company_logo}`} alt={`company logo`} />}
@@ -89,10 +99,11 @@ export default function JobDetails() {
           <small className='footer__textbox__company'>{job.company}</small>
         </div>
         {applyNowLink(job.how_to_apply) && (
-            <Button onClick={() => window.open(applyNowLink(job.how_to_apply))}>Apply Now</Button>
-          )}
+          <Button onClick={() => window.open(applyNowLink(job.how_to_apply))}>Apply Now</Button>
+        )}
       </footer>
       <BackToTopButton />
-    </StyledJobDetails>
+    </StyledJobDetails>}
+    </>
   );
 }

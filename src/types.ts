@@ -3,7 +3,10 @@ import { type } from 'os';
 export type JobType = {
   id: string;
   company_logo: string;
+  company_url: string;
   created_at: string;
+  how_to_apply: string;
+  description: string;
   type: string;
   company: string;
   title: string;
