@@ -5,7 +5,7 @@ const pallete = {
   midnight: 'rgb(18, 23, 33)',  
   grayLight: 'rgba(158, 175, 194, 0.5)',
   gray: 'rgb(158, 175, 194)',
-  grayDark: 'rgb(109, 127, 151)',
+  grayDark: 'rgb(101, 101, 101)',
   white: '#fff',
   black: '#000'
 };

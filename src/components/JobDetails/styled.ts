@@ -7,6 +7,9 @@ export const StyledJobDetails = styled.div`
   & p, li {
     color: ${colors.grayDark};
   }
+  & strong {
+    color: ${colors.black};
+  }
   & .job__listing__header {
     display: flex;
     min-height: 120px;
@@ -15,6 +18,7 @@ export const StyledJobDetails = styled.div`
     transform: translateY(-30px);
     background-color: ${colors.white};
     overflow: hidden;
+    box-shadow: 0px 4px 13px 0px #0000001c;
     @media (max-width: 720px) {
       flex-direction: column;
       text-align: center;
@@ -86,14 +90,15 @@ export const StyledJobDetails = styled.div`
     padding: 35px;
     word-wrap: break-word;
     border-radius: 5px;
+    box-shadow: 0px 4px 13px 0px #0000001c;
     @media (max-width: 600px) {
+
       & .body__heading {
         flex-direction: column;
         align-items: flex-start;
-        & .btn {
-          width: 100%;
+        & button {          
           margin-top: 30px;
-          justify-content: center;
+          align-self: flex-end;
         }
       }
       & .body__main ul li,
@@ -149,12 +154,16 @@ export const StyledJobDetails = styled.div`
   }
 
   & .job__listing__cta {
+    box-shadow: 0px 4px 13px 0px #738fffcf;
+    & .cta__body {
+      & p {color: ${colors.white};}
+    }
     position: relative;
     overflow-wrap: break-word;
-    color: ${colors.white};
+    color: ${colors.white} !important;
     margin: 20px 0 60px;
     padding: 35px;
-    border-radius: 5px;
+    border-radius: 8px;
     &:before {
       content: '';
       position: absolute;
@@ -195,17 +204,9 @@ export const StyledJobDetails = styled.div`
     background-color: #fff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
-    @media (max-width: 600px) {
-      position: relative;
-      left: -4vw;
-      width: calc(100% + 8vw);
-      & .footer__textbox {
-        display: none;
-      }
-      & .btn {
-        width: 100%;
-      }
+    box-shadow: 0px 4px 13px 0px #0000001c;
+    @media (max-width: 600px) {     
+        display: none;     
     }
     & .footer__textbox__position {
       margin-bottom: 10px;

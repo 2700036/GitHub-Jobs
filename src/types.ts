@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 export type JobType = {
   id: string;
   company_logo: string;
