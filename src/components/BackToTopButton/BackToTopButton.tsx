@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import useWindowHeightScroll from '../../hooks/useWindowHeight&Scroll';
 import arrow from '../../images/up-arrow.svg';
 import { StyledBackToTopButton } from './styled';
 

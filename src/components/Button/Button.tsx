@@ -3,7 +3,8 @@ import Spinner from './Spinner';
 import { StyledButton, StyledButtonProps } from './styled';
 
 interface Button extends StyledButtonProps {
-  children: string;  
+  children: string; 
+  onClick?: ()=>void 
 }
 
 const Button = ({ children, ...props }:Button) => {

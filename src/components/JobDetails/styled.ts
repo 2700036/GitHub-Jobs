@@ -4,7 +4,9 @@ import footer from '../../images/desktop/bg-pattern-detail-footer.svg';
 
 export const StyledJobDetails = styled.div`
   margin: 0 calc(9vw + 100px);
-  & p {color: ${colors.grayDark};}
+  & p, li {
+    color: ${colors.grayDark};
+  }
   & .job__listing__header {
     display: flex;
     min-height: 120px;
@@ -56,20 +58,7 @@ export const StyledJobDetails = styled.div`
       align-items: center;
       justify-content: space-between;
       flex: 1;
-      padding: 0 0 0 50px;
-      & .btn {
-        display: flex;
-        margin-left: auto;
-        text-decoration: none;
-        align-items: center;
-        height: 55px;
-        padding: 0 25px;
-        background-color: rgba(148, 156, 244, 0.25);
-        color: ${colors.second};
-        &:hover {
-          border-color: #f1f1b1;
-        }
-      }
+      padding: 0 0 0 50px;      
     }
     & .header__textbox__heading {
       margin-bottom: 8px;
@@ -89,9 +78,6 @@ export const StyledJobDetails = styled.div`
         color: rgba(255, 0, 0, 0.6);
         pointer-events: none;
       }
-      &.invalid small {
-        display: inline-block;
-      }
     }
   }
 
@@ -99,7 +85,7 @@ export const StyledJobDetails = styled.div`
     background-color: ${colors.white};
     padding: 35px;
     word-wrap: break-word;
-    border-radius: 5px ;    
+    border-radius: 5px;
     @media (max-width: 600px) {
       & .body__heading {
         flex-direction: column;
@@ -120,12 +106,7 @@ export const StyledJobDetails = styled.div`
       align-items: center;
       justify-content: space-between;
       margin-bottom: 30px;
-      & .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-      }
+      
     }
     & .body__heading__title {
       margin: 8px 50px 8px 0px;
@@ -151,12 +132,14 @@ export const StyledJobDetails = styled.div`
         & li {
           position: relative;
           margin: 0 50px 10px calc(50px + 1em);
+          &:before {
+            content: '•';
+            font-size: 12px;
+            color: ${colors.grayDark};
+            margin-right: 10px;
+            margin-left: -1em;
+          }
         }
-      }
-      & ul li,
-      ol li {
-        position: relative;
-        margin: 0 50px 10px calc(50px + 1em);
       }
       & ul li:last-of-type,
       ol li:last-of-type {
@@ -171,7 +154,7 @@ export const StyledJobDetails = styled.div`
     color: ${colors.white};
     margin: 20px 0 60px;
     padding: 35px;
-    border-radius: 5px;    
+    border-radius: 5px;
     &:before {
       content: '';
       position: absolute;

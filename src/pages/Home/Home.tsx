@@ -10,8 +10,7 @@ import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
 
-export default function Home() {
-  
+export default function Home() {  
   const { jobs } = useGitHubJobService();  
   return (
     <StyledHome>
