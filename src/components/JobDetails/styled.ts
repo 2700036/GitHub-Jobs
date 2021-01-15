@@ -3,7 +3,7 @@ import colors from '../../constants/colors';
 import footer from '../../images/desktop/bg-pattern-detail-footer.svg';
 
 export const StyledJobDetails = styled.div`
-  margin: 0 calc(9vw + 100px);
+  margin: 0 calc(9vw + 100px);  
   & p, li {
     color: ${colors.grayDark};
   }
@@ -18,7 +18,7 @@ export const StyledJobDetails = styled.div`
     transform: translateY(-30px);
     background-color: ${colors.white};
     overflow: hidden;
-    box-shadow: 0px 4px 13px 0px #0000001c;
+    box-shadow: 0px 4px 13px 0px ${colors.boxShadow};
     @media (max-width: 720px) {
       flex-direction: column;
       text-align: center;
@@ -90,7 +90,7 @@ export const StyledJobDetails = styled.div`
     padding: 35px;
     word-wrap: break-word;
     border-radius: 5px;
-    box-shadow: 0px 4px 13px 0px #0000001c;
+    box-shadow: 0px 4px 13px 0px ${colors.boxShadow};
     @media (max-width: 600px) {
 
       & .body__heading {
@@ -204,7 +204,7 @@ export const StyledJobDetails = styled.div`
     background-color: #fff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0px 4px 13px 0px #0000001c;
+    box-shadow: 0px 4px 13px 0px ${colors.boxShadow};
     @media (max-width: 600px) {     
         display: none;     
     }

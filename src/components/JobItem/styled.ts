@@ -11,6 +11,7 @@ const StyledJobItem = styled.div<StyledJobItemProps>`
   border-radius: 5px;
   padding: 0 20px 20px;
   height: 225px;
+  box-shadow: 0px 0px 13px 0px ${colors.boxShadow};
   & .thumbnail__image__container_bg {
     background: ${({logo}) => logo ? `url(${logo})` : colors.white};
     width: 100%;

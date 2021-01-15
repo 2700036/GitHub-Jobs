@@ -7,7 +7,8 @@ const pallete = {
   gray: 'rgb(158, 175, 194)',
   grayDark: 'rgb(101, 101, 101)',
   white: '#fff',
-  black: '#000'
+  black: '#000',
+  dirtyWhite: '#0000001c'
 };
 
 const colors = {
@@ -18,7 +19,7 @@ const colors = {
   midnight: pallete.midnight,
   main: pallete.main,
   second: pallete.mainDark, 
-  
+  boxShadow: pallete.dirtyWhite,
   
   gray: pallete.gray,
   grayDark: pallete.grayDark,

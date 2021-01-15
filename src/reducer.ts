@@ -10,9 +10,9 @@ const isFieldInfo = (payload: any): payload is FieldInfo => {
 };
 
 const initialState = {
-  description: '',
-  location: '',
-  fullTime: false,
+  description: localStorage.getItem('description') || '',
+  location: localStorage.getItem('location') || '',
+  fullTime: !!localStorage.getItem('fullTime') || false,
   jobs: [],
   isLoading: false,
 };
@@ -29,7 +29,7 @@ export default (state = initialState, { type, payload }: any) => {
       return { ...state, fullTime: !state.fullTime };
     case 'UPDATE_SEARCH_VALUE':
       if (!isFieldInfo(payload)) return state;
-      const field: string = payload.field;
+      const field: string = payload.field;      
       return { ...state, [field]: payload.value };
 
     default:

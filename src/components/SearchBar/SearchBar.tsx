@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useActions } from '../../hooks/useActions';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import Arrow from '../../Icons/Arrow';
+import { RootState } from '../../reducer';
 import Button from '../Button/Button';
 import Checkbox from './Checkbox';
-import {StyledSearchBar} from './styled';
-// import './searchBar.css';
+import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
+  const { description, location, fullTime } = useSelector((state: RootState) => state);
   const [isOpen, setIsOpen] = useState(false);
-  const {updateSearchField} = useActions();
-  const { description, location, fullTime, searchJobs } =  useGitHubJobService();
-  const handleInput = (target: HTMLInputElement):void => {
-    updateSearchField({field: target.name, value: target.value})
-  }
+  const [values, setValues] = useState({ description, location });
+  const { updateSearchField } = useActions();
+
+  const { searchJobs } = useGitHubJobService();
+  const handleInput = (target: HTMLInputElement): void => {
+    updateSearchField({ field: target.name, value: target.value });
+    setValues((state) => {
+      return { ...state, [target.name]: target.value };
+    });
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     searchJobs();
-  }
+  };
 
   return (
     <StyledSearchBar isOpen={isOpen} onSubmit={handleSubmit}>
@@ -26,8 +33,8 @@ export default function SearchBar() {
           placeholder='Filter by title, expertise...'
           aria-label='Enter company, title, or expertise here'
           name='description'
-          onChange={e => handleInput(e.target)}
-          value={description}
+          onChange={(e) => handleInput(e.target)}
+          value={values.description}
         />
         <button
           className='mobile-search-bar-deploy'
@@ -50,8 +57,8 @@ export default function SearchBar() {
             placeholder='Filter by location...'
             aria-label='Enter desired job location'
             name='location'
-            onChange={e => handleInput(e.target)}
-            value={location}
+            onChange={(e) => handleInput(e.target)}
+            value={values.location}
           />
         </div>
         <Checkbox checked={fullTime}>Full Time</Checkbox>
