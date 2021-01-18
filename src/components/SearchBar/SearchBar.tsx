@@ -10,16 +10,12 @@ import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
   const { description, location, fullTime } = useSelector((state: RootState) => state);
-  const [isOpen, setIsOpen] = useState(false);
-  const [values, setValues] = useState({ description, location });
+  const [isOpen, setIsOpen] = useState(false);  
   const { updateSearchField } = useActions();
 
   const { searchJobs } = useGitHubJobService();
   const handleInput = (target: HTMLInputElement): void => {
-    updateSearchField({ field: target.name, value: target.value });
-    setValues((state) => {
-      return { ...state, [target.name]: target.value };
-    });
+    updateSearchField({ field: target.name, value: target.value });   
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +30,7 @@ export default function SearchBar() {
           aria-label='Enter company, title, or expertise here'
           name='description'
           onChange={(e) => handleInput(e.target)}
-          value={values.description}
+          value={description}
         />
         <button
           className='mobile-search-bar-deploy'
@@ -58,7 +54,7 @@ export default function SearchBar() {
             aria-label='Enter desired job location'
             name='location'
             onChange={(e) => handleInput(e.target)}
-            value={values.location}
+            value={location}
           />
         </div>
         <Checkbox checked={fullTime}>Full Time</Checkbox>

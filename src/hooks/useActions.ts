@@ -4,10 +4,13 @@ import {
   JOBS_START_FETCHING,
   JOBS_STOP_FETCHING,
   JOBS_FILL,
+  JOBS_FILL_MORE,
   Jobs,
   FULLTIME_SWITCH,
   FieldInfo,
   UPDATE_SEARCH_VALUE,
+  INREASE_PAGE,
+  RESET_PAGE
 } from '../types';
 
 export const useActions = () => {
@@ -25,6 +28,11 @@ export const useActions = () => {
       type: JOBS_FILL,
       payload,
     });
+  const jobsFillMore = (payload: Jobs): JobsActionTypes =>
+    dispatch({
+      type: JOBS_FILL_MORE,
+      payload,
+    });
   const toggleFulltime = (): JobsActionTypes =>
     dispatch({
       type: FULLTIME_SWITCH,
@@ -34,11 +42,23 @@ export const useActions = () => {
       type: UPDATE_SEARCH_VALUE,
       payload,
     });
+  const inreasePage = (): JobsActionTypes =>
+    dispatch({
+      type: INREASE_PAGE      
+    });
+  const resetPage = (): JobsActionTypes =>
+    dispatch({
+      type: RESET_PAGE      
+    });
+
   return {
     jobsStartFetching,
     jobsStopFetching,
     jobsFill,
+    jobsFillMore,
     updateSearchField,
     toggleFulltime,
+    inreasePage,
+    resetPage
   };
 };

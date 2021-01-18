@@ -1,9 +1,14 @@
+import { Jobs } from './../types';
 export interface GitHubJobServiceInterface<T> {
-  getJobs({ description, location, fullTime}: GetJobs): Promise<T>
-}
+  baseUrl: string;
+  getJobs: GetJobs<T>;
+};
 
-type GetJobs = {
-  description?: string, 
-  location?: string, 
-  fullTime?: boolean
-}
+export type GetJobs<T> = ({ description, location, fullTime, page }: Query) => Promise<T>;
+
+export type Query = {
+  description?: string;
+  location?: string;
+  fullTime?: boolean;
+  page?: number;
+};

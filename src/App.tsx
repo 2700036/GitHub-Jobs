@@ -7,6 +7,7 @@ import JobDetails from './components/JobDetails/JobDetails';
 import { useGitHubJobService } from './hooks/useGitHubJobService';
 function App() {
   const {searchJobs} = useGitHubJobService();
+
   useEffect(() => {
     searchJobs();
   }, []);
