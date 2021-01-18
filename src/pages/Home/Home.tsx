@@ -11,7 +11,7 @@ import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 
 
 export default function Home() {  
-  const { jobs, searchMoreJobs } = useGitHubJobService(); 
+  const { jobs, searchMoreJobs, isLoading } = useGitHubJobService(); 
   const isFullPage = jobs.length > 0 && jobs.length % 50 === 0;
   
   return (
@@ -31,7 +31,7 @@ export default function Home() {
           />
         ))}
       </JobsContainer>
-      {isFullPage && <Button onClick={searchMoreJobs} >Load More</Button>}
+      {isFullPage && <Button isLoading={isLoading} onClick={searchMoreJobs} >Load More</Button>}
       <BackToTopButton />
     </StyledHome>
   );

@@ -9,7 +9,7 @@ import Checkbox from './Checkbox';
 import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
-  const { description, location, fullTime } = useSelector((state: RootState) => state);
+  const { description, location, fullTime, isLoading } = useSelector((state: RootState) => state);
   const [isOpen, setIsOpen] = useState(false);  
   const { updateSearchField } = useActions();
 
@@ -59,7 +59,7 @@ export default function SearchBar() {
         </div>
         <Checkbox checked={fullTime}>Full Time</Checkbox>
       </div>
-      <Button isLoading={false} icon={<Arrow />} size='m'>
+      <Button isLoading={isLoading} icon={<Arrow />} size='m'>
         Search
       </Button>
     </StyledSearchBar>
