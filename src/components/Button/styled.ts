@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import colors from '../../constants/colors';
 
+
 const backgroundAndBorderColor = (color:string) => css<StyledButtonProps>`
 background: ${props => props.variant === 'ghost' ? 'none' : `${color}`};
 color: ${props => props.variant === 'ghost' ? `${color}` : `#fff`};
@@ -26,7 +27,7 @@ export interface StyledButtonProps {
 }
 export interface StyledSpinerProps { 
   variant?: 'ghost' | 'none';
-  size?: 's' | 'm'; 
+  size?: 's' | 'm' | 'l'; 
   isLoading?: boolean;  
 }
 
@@ -94,8 +95,15 @@ export const StyledButton = styled.button<StyledButtonProps>`
 export const StyledSpiner = styled.div<StyledSpinerProps>`
   display: ${props => props.isLoading ? 'flex' : 'none'};
   position: absolute;
-  width: ${props => props.size === 's' ? `0.9rem` : `1.2rem`}; 
-  height: ${props => props.size === 's' ? `0.9rem` : `1.2rem`};  
+  ${props => {
+    switch (props.size) {
+      case 's':
+        return `width: 0.9rem; height: 0.9rem;`;
+      case 'l':
+        return `width: 6vh; height: 6vh;`;    
+      default:
+        return `width: 1.2rem; height: 1.2rem;`}
+  }} 
   top: 50%;
   left: 50%;
   animation: ${rotate} 0.8s ease-in-out infinite;

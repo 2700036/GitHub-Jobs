@@ -62,6 +62,7 @@ const StyledHeader = styled.div`
     min-height: 200px;
     & .header__backgrounds {
       min-height: 200px;
+      overflow: hidden;
       & img {
         transform: translateX(-53px) scaleX(1.5);
       }

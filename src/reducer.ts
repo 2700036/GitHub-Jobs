@@ -32,11 +32,9 @@ export default (state = initialState, { type, payload }: any) => {
       return { ...state, fullTime: !state.fullTime };
     case 'INREASE_PAGE':      
       return { ...state, page: ++state.page };
-    case 'RESET_PAGE':
-      console.log(state.page)      
+    case 'RESET_PAGE':          
       return { ...state, page: 1 };
-    case 'UPDATE_SEARCH_VALUE':
-      console.log(state.description, state.location)
+    case 'UPDATE_SEARCH_VALUE':      
       if (!isFieldInfo(payload)) return state;
       const field: string = payload.field;      
       return { ...state, [field]: payload.value };

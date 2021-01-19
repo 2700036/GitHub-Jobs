@@ -2,10 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StyledJobItem from './styled';
 import { JobItemPropTypes } from './types';
+
+
 export default function JobItem({ logo, date, lengthTerm, company, jobTitle, location, id }: JobItemPropTypes) {
   return (
     <Link to={id}>
-      <StyledJobItem {...{ logo }}>
+      <StyledJobItem {...{ logo }} 
+      initial={{scale: 0}}
+      animate={{scale: 1}}
+      // initial={{translateX: Math.random()*1000-500}}
+      // animate={{translateX: 0}}
+      >
         <div className='thumbnail__image__container'>
           <div className='thumbnail__image__container_bg'></div>
           <div className='thumbnail__image__container_box'>

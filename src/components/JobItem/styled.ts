@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
+import { motion } from "framer-motion"
 
 export interface StyledJobItemProps {
   logo: string;
 }
 
-const StyledJobItem = styled.div<StyledJobItemProps>`
+const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
   position: relative;
   background-color: ${colors.white};
   border-radius: 5px;

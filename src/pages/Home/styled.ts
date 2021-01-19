@@ -8,7 +8,7 @@ const StyledHome = styled.div`
   flex-direction: column;
   max-width: 1900px;
   width: 100%;
-  min-height: 100vh;
+  flex-grow: 1;
   padding: 5vh 9vw;
   margin: 0 auto;
   `;
