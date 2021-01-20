@@ -5,14 +5,15 @@ import colors from '../../constants/colors';
 
 interface StyledSearchBarProps {
   readonly isOpen: boolean;
+  readonly isThemeDark: boolean;
 };
 
 const StyledSearchBar = styled.form<StyledSearchBarProps>`
   display: flex;
   position: relative;
   align-items: center;
-  background-color: ${colors.white};
-  color: ${colors.blueDark};
+  background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
+  color: ${props => props.isThemeDark ? colors.gray : colors.blueDark };
   padding: 0 10px;
   border-radius: 5px;
   width: 100%;
@@ -24,9 +25,9 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
     padding: 20px 15px 20px 35px;
     font-family: inherit;
     border: 0;
-    border-right: 1px solid ${colors.grayLight};
+    border-right: 1px solid ${props => props.isThemeDark ? colors.grayDark : colors.grayLight };
     background-color: transparent;
-    color: ${colors.blueDark};
+    color: ${props => props.isThemeDark ? colors.gray : colors.blueDark };
     width: 100%;
     & :placeholder {
       font-size: 0.9em;
@@ -82,8 +83,8 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
         border: 0;
         & svg {
           transform: scale(0.9);
-          & :hover path {
-            fill: ${colors.grayDark};
+          &:hover path {
+            fill: ${colors.second};
           }
         }
       }
@@ -98,14 +99,14 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
       border-radius: 5px;
       top: ${(props) => (props.isOpen ? '57px' : '32px')};
       left: 0px;
-      background-color: ${colors.white};
+      background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
       width: 100%;
       transition: top 0.3s ease, visibility 0.15s ease;
       z-index: -5;
       box-shadow: 0px 15px 10px -5px #0000001c;
 
       & .search__bar__location {
-        border-bottom: 1px solid ${colors.grayLight};
+        border-bottom: 1px solid ${props => props.isThemeDark ? colors.grayDark : colors.grayLight };
         background-position: 25px 55%;
         padding: 0 35px 0 20px;
         height: 56px;

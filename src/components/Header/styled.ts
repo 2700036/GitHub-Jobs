@@ -2,8 +2,11 @@ import styled, { css } from 'styled-components';
 import colors from '../../constants/colors'
 
 
+interface StyledHeaderProps {
+  readonly isThemeDark: boolean;
+};
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.div<StyledHeaderProps>`
   display: flex;
   position: relative;
   align-items: center;
@@ -50,11 +53,12 @@ const StyledHeader = styled.div`
           border: 0;
           border-radius: 50%;
           background-color: ${colors.second};
+          ${props => {
+            if(props.isThemeDark) return `transform: translateX(calc(100% + 4px));`} 
+          }
           transition: 0.2s;
         }
-        & .active .slider {
-          transform: translateX(calc(100% + 4px));
-        }
+ 
       }
     }
   }

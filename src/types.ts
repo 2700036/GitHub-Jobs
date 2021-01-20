@@ -51,6 +51,10 @@ export const RESET_PAGE = 'RESET_PAGE';
 type resetPageAction = {
   type: typeof RESET_PAGE;  
 };
+export const TOGGLE_THEME = 'TOGGLE_THEME';
+type toggleThemeAction = {
+  type: typeof TOGGLE_THEME;  
+};
 
 export type JobsActionTypes =
   | JobsStartFetchingAction
@@ -60,4 +64,5 @@ export type JobsActionTypes =
   | UpdateSearchValueAction
   | fulltimeSwitchAction
   | inreasePageAction
-  | resetPageAction;
+  | resetPageAction
+  | toggleThemeAction;

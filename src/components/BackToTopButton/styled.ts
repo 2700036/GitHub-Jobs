@@ -16,6 +16,7 @@ export const StyledBackToTopButton = styled.button<BackToTopButtonProps>`
   transition: bottom .5s ease, visibility 1s;
   right: 9vw;
   cursor: pointer;
+  z-index: 5;
   & img {
     height: 22px;
     transition: 0.3s;

@@ -2,10 +2,12 @@ import React from 'react';
 import { timeDifference } from '../../helpers/timeDiffererence';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import { JobType } from '../../types';
-import BackToTopButton from '../BackToTopButton/BackToTopButton';
-import Button from '../Button/Button';
+import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
+import Button from '../../components/Button/Button';
 import { StyledJobDetails } from './styled';
 import { Props } from './types';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../reducer';
 
 // const isJobType = (job: JobType | undefined): job is JobType => {
 //   return (job as JobType).company_url !== void 0
@@ -13,6 +15,7 @@ import { Props } from './types';
 
 export default function JobDetails({ match }: Props) {
   const { jobs, isLoading } = useGitHubJobService();
+  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
   const jobID: string = match.params.jobID;
   const job: JobType | undefined = jobs.find(({ id }) => id === jobID);
 
@@ -35,7 +38,7 @@ export default function JobDetails({ match }: Props) {
   return (
     <>
       {job && (
-        <StyledJobDetails>
+        <StyledJobDetails isThemeDark={isThemeDark}>
           <div className='job__listing__header'>
             <div className='header__image__container'>
               {job.company_logo && <img src={`${job.company_logo}`} alt={`company logo`} />}

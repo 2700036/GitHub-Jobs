@@ -1,4 +1,5 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../reducer';
 import {
   JobsActionTypes,
   JOBS_START_FETCHING,
@@ -10,10 +11,12 @@ import {
   FieldInfo,
   UPDATE_SEARCH_VALUE,
   INREASE_PAGE,
-  RESET_PAGE
+  RESET_PAGE,
+  TOGGLE_THEME,
 } from '../types';
 
 export const useActions = () => {
+  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
   const dispatch = useDispatch();
   const jobsStartFetching = (): JobsActionTypes =>
     dispatch({
@@ -44,12 +47,24 @@ export const useActions = () => {
     });
   const inreasePage = (): JobsActionTypes =>
     dispatch({
-      type: INREASE_PAGE      
+      type: INREASE_PAGE,
     });
   const resetPage = (): JobsActionTypes =>
     dispatch({
-      type: RESET_PAGE      
+      type: RESET_PAGE,
     });
+  const toggleTheme = (): JobsActionTypes =>
+    dispatch({
+      type: TOGGLE_THEME,
+    });
+  const handleThemeChange = (): void => {
+    if(isThemeDark){
+      localStorage.removeItem('isThemeDark');      
+    } else {
+      localStorage.setItem('isThemeDark', 'true')
+    };
+    toggleTheme();
+  };
 
   return {
     jobsStartFetching,
@@ -59,6 +74,7 @@ export const useActions = () => {
     updateSearchField,
     toggleFulltime,
     inreasePage,
-    resetPage
+    resetPage,
+    handleThemeChange,
   };
 };

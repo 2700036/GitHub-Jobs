@@ -9,7 +9,7 @@ const StyledHome = styled.div`
   max-width: 1900px;
   width: 100%;
   flex-grow: 1;
-  padding: 5vh 9vw;
+  padding: 0 9vw 5vh;
   margin: 0 auto;
   `;
 

@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import arrow from '../../images/up-arrow.svg';
+import { RootState } from '../../reducer';
 import { StyledBackToTopButton } from './styled';
 
 export default function BackToTopButton() {
   const button = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+
   useEffect(() => {
     function updateScrollHeight() {
       const scrollHeight = Math.max(
@@ -30,6 +34,7 @@ export default function BackToTopButton() {
   return (
     <StyledBackToTopButton
       {...{ isVisible }}
+      isThemeDark={isThemeDark}
       ref={button}
       aria-label='Button to scroll back to top of page'
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

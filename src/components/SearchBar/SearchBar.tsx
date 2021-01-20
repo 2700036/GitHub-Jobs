@@ -9,7 +9,7 @@ import Checkbox from './Checkbox';
 import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
-  const { description, location, fullTime, isLoading } = useSelector((state: RootState) => state);
+  const { description, location, fullTime, isLoading, isThemeDark } = useSelector((state: RootState) => state);
   const [isOpen, setIsOpen] = useState(false);  
   const { updateSearchField } = useActions();
 
@@ -23,7 +23,7 @@ export default function SearchBar() {
   };
 
   return (
-    <StyledSearchBar isOpen={isOpen} onSubmit={handleSubmit}>
+    <StyledSearchBar isOpen={isOpen} onSubmit={handleSubmit} isThemeDark={isThemeDark}>
       <div className='search__bar__description form__control'>
         <input
           placeholder='Filter by title, expertise...'

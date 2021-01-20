@@ -10,6 +10,7 @@ const isFieldInfo = (payload: any): payload is FieldInfo => {
 };
 
 const initialState = {
+  isThemeDark: !!localStorage.getItem('isThemeDark') || false,
   description: localStorage.getItem('description') || '',
   location: localStorage.getItem('location') || '',
   fullTime: !!localStorage.getItem('fullTime') || false,
@@ -19,7 +20,10 @@ const initialState = {
 };
 
 export default (state = initialState, { type, payload }: any) => {
+  console.log(type)
   switch (type) {
+    case 'TOGGLE_THEME':
+      return { ...state, isThemeDark: !state.isThemeDark };
     case 'JOBS_START_FETCHING':
       return { ...state, isLoading: true };
     case 'JOBS_STOP_FETCHING':
@@ -51,4 +55,5 @@ export type RootState = {
   page: number;
   jobs: Jobs;
   isLoading: boolean;
+  isThemeDark: boolean;
 };

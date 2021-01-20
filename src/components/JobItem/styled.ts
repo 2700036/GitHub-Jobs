@@ -4,21 +4,26 @@ import { motion } from "framer-motion"
 
 export interface StyledJobItemProps {
   logo: string;
+  isThemeDark: boolean;
 }
 
 const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
   position: relative;
-  background-color: ${colors.white};
+  background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
+  color: ${props => props.isThemeDark ? colors.gray : colors.grayDark };
   border-radius: 5px;
   padding: 0 20px 20px;
   height: 225px;
   box-shadow: 0px 0px 13px 0px ${colors.boxShadow};
+  & .thumbnail__title {
+    color: ${props => props.isThemeDark ? colors.white : colors.black };
+  }
   & .thumbnail__image__container_bg {
-    background: ${({logo}) => logo ? `url(${logo})` : colors.white};
+    background: ${({logo}) => logo ? `url(${logo})` : colors.grayLight};
     width: 100%;
     height: 100%;
     position: absolute;
-    filter: blur(40px);
+    filter: blur(${props => props.isThemeDark ? 10 : 40 }px);
   }
   & .thumbnail__image__container_box {
     border-radius: 10px;

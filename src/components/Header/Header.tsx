@@ -3,12 +3,15 @@ import background from '../../images/desktop/bg-pattern-header.svg';
 import sun from '../../images/desktop/icon-sun.svg';
 import moon from '../../images/desktop/icon-moon.svg';
 import StyledHeader from './styled';
-
-
+import { useSelector } from 'react-redux';
+import { RootState } from '../../reducer';
+import { useActions } from '../../hooks/useActions';
 
 export default function Header() {
+  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+  const { handleThemeChange } = useActions();
   return (
-    <StyledHeader>
+    <StyledHeader isThemeDark={isThemeDark}>
       <div className='header__backgrounds'>
         <img className='background__desktop' src={background} alt='' />
       </div>
@@ -22,7 +25,7 @@ export default function Header() {
           <button
             className={`header__toggle__btn active`}
             aria-label='Set page theme to either light or dark'
-            // onClick={() => ''}
+            onClick={handleThemeChange}
           >
             <span className='slider' />
           </button>

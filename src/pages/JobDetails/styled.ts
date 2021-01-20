@@ -2,13 +2,19 @@ import styled from 'styled-components';
 import colors from '../../constants/colors';
 import footer from '../../images/desktop/bg-pattern-detail-footer.svg';
 
-export const StyledJobDetails = styled.div`
+export interface StyledJobDetailsProps {
+  
+  isThemeDark: boolean;
+}
+
+export const StyledJobDetails = styled.div<StyledJobDetailsProps>`
   margin: 0 calc(9vw + 100px);  
+  color: ${props => props.isThemeDark ? colors.white : colors.black};
   & p, li {
-    color: ${colors.grayDark};
+    color: ${props => props.isThemeDark ? colors.gray : colors.grayDark };
   }
   & strong {
-    color: ${colors.black};
+    color: ${props => props.isThemeDark ? colors.white : colors.black };
   }
   & .job__listing__header {
     display: flex;
@@ -16,7 +22,7 @@ export const StyledJobDetails = styled.div`
     padding: 20px 35px;
     border-radius: 5px;
     transform: translateY(-30px);
-    background-color: ${colors.white};
+    background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
     overflow: hidden;
     box-shadow: 0px 4px 13px 0px ${colors.boxShadow};
     @media (max-width: 720px) {
@@ -46,15 +52,6 @@ export const StyledJobDetails = styled.div`
       width: 150px;
       & img {
         max-width: 100%;
-      }
-      & .no-logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: ${colors.grayDark};
-        width: 100%;
-        position: relative;
-        height: calc(100% + 30px);
       }
     }
     & .header__textbox {
@@ -86,7 +83,7 @@ export const StyledJobDetails = styled.div`
   }
 
   & .job__listing__body {
-    background-color: ${colors.white};
+    background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
     padding: 35px;
     word-wrap: break-word;
     border-radius: 5px;
@@ -140,7 +137,7 @@ export const StyledJobDetails = styled.div`
           &:before {
             content: '•';
             font-size: 12px;
-            color: ${colors.grayDark};
+            color: ${props => props.isThemeDark ? colors.gray : colors.grayDark };
             margin-right: 10px;
             margin-left: -1em;
           }
@@ -155,6 +152,7 @@ export const StyledJobDetails = styled.div`
 
   & .job__listing__cta {
     box-shadow: 0px 4px 13px 0px #738fffcf;
+    z-index: 1;
     & .cta__body {
       & p {color: ${colors.white};}
     }
@@ -164,7 +162,7 @@ export const StyledJobDetails = styled.div`
     margin: 20px 0 60px;
     padding: 35px;
     border-radius: 8px;
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       background-image: url(${footer});
@@ -201,7 +199,7 @@ export const StyledJobDetails = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 25px 35px 20px;
-    background-color: #fff;
+    background-color: ${props => props.isThemeDark ? colors.blueDark : colors.white };
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0px 4px 13px 0px ${colors.boxShadow};

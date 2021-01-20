@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from '../../reducer';
 import StyledJobItem from './styled';
 import { JobItemPropTypes } from './types';
 
 
 export default function JobItem({ logo, date, lengthTerm, company, jobTitle, location, id }: JobItemPropTypes) {
+  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
   return (
     <Link to={id}>
       <StyledJobItem {...{ logo }} 
+      isThemeDark={isThemeDark}
       initial={{scale: 0}}
       animate={{scale: 1}}
       // initial={{translateX: Math.random()*1000-500}}
