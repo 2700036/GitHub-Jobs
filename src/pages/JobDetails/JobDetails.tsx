@@ -35,6 +35,11 @@ export default function JobDetails({ match }: Props) {
     return link.match(valid) ? link.match(valid)![0] : undefined;
   };
 
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
+
   return (
     <>
       {job && (
