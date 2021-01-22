@@ -19,7 +19,7 @@ const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
     color: ${props => props.isThemeDark ? colors.white : colors.black };
   }
   & .thumbnail__image__container_bg {
-    background: ${({logo}) => logo ? `url(${logo})` : colors.grayLight};
+   
     width: 100%;
     height: 100%;
     position: absolute;
@@ -84,3 +84,6 @@ const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
 `;
 
 export default StyledJobItem;
+
+
+//  background: ${({logo}) => logo ? `url(${logo})` : colors.grayLight};
