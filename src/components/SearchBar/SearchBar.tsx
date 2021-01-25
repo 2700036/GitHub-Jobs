@@ -9,21 +9,30 @@ import Checkbox from './Checkbox';
 import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
-  const { description, location, fullTime, isLoading, isThemeDark } = useSelector((state: RootState) => state);
-  const [isOpen, setIsOpen] = useState(false);  
+  const { description, location, fullTime, isLoading, isThemeDark } = useSelector(
+    (state: RootState) => state
+  );
+  const [isOpen, setIsOpen] = useState(false);
   const { updateSearchField } = useActions();
 
   const { searchJobs } = useGitHubJobService();
   const handleInput = (target: HTMLInputElement): void => {
-    updateSearchField({ field: target.name, value: target.value });   
+    updateSearchField({ field: target.name, value: target.value });
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsOpen(false);
     searchJobs();
   };
 
   return (
-    <StyledSearchBar isOpen={isOpen} onSubmit={handleSubmit} isThemeDark={isThemeDark}>
+    <StyledSearchBar
+      isOpen={isOpen}
+      onSubmit={handleSubmit}
+      isThemeDark={isThemeDark}
+      disabled={isLoading}
+      autoComplete='off'
+    >
       <div className='search__bar__description form__control'>
         <input
           placeholder='Filter by title, expertise...'

@@ -6,6 +6,8 @@ import colors from '../../constants/colors';
 interface StyledSearchBarProps {
   readonly isOpen: boolean;
   readonly isThemeDark: boolean;
+  disabled: boolean;
+  autoComplete: 'off' | 'on';
 };
 
 const StyledSearchBar = styled.form<StyledSearchBarProps>`

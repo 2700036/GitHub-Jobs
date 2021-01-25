@@ -9,6 +9,7 @@ import StyledHome from './styled';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import Spinner from '../../components/Button/Spinner';
+import NotFound from '../../components/NotFound/NotFound';
 
 
 export default function Home() {  
@@ -18,7 +19,7 @@ export default function Home() {
   return (
     <StyledHome>
       <SearchBar />
-      <JobsContainer>
+      {jobs.length > 0  && <JobsContainer>
         
         {jobs?.map((job: JobType) => (
           <JobItem
@@ -32,7 +33,8 @@ export default function Home() {
             location={job.location}
           />
         ))}
-      </JobsContainer>
+      </JobsContainer>}
+      {jobs.length < 1 && !isLoading && <NotFound />}
          {isLoading && !jobs.length && <Spinner isLoading={isLoading} size='l' variant='ghost'/>}
       {isFullPage && <Button isLoading={isLoading} onClick={searchMoreJobs} >Load More</Button>}
       <BackToTopButton />

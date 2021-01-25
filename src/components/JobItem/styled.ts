@@ -23,7 +23,7 @@ const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
     width: 100%;
     height: 100%;
     position: absolute;
-    filter: blur(${props => props.isThemeDark ? 10 : 40 }px);
+    background-color: ${props => props.isThemeDark ? colors.midnight : colors.white}
   }
   & .thumbnail__image__container_box {
     border-radius: 10px;
@@ -43,7 +43,7 @@ const StyledJobItem = styled(motion.div)<StyledJobItemProps>`
     padding: 8px;
     border-radius: 10px;
     transform: translateY(-50%);
-    border: 1px solid ${colors.grayLight};
+    border: 1px solid ${props => props.isThemeDark ? colors.grayDark : colors.grayLight};
     background-color: ${colors.white};
     & img {
       max-width: 100%;      
