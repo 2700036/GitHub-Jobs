@@ -7,7 +7,7 @@ import Button from '../../components/Button/Button';
 import { StyledJobDetails } from './styled';
 import { Props } from './types';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../reducer';
+import { RootState } from '../../reducers/types';
 
 // const isJobType = (job: JobType | undefined): job is JobType => {
 //   return (job as JobType).company_url !== void 0
@@ -15,7 +15,7 @@ import { RootState } from '../../reducer';
 
 export default function JobDetails({ match }: Props) {
   const { jobs, isLoading } = useGitHubJobService();
-  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+    const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
   const jobID: string = match.params.jobID;
   const job: JobType | undefined = jobs.find(({ id }) => id === jobID);
 

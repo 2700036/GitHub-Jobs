@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import JobDetails from './pages/JobDetails/JobDetails';
 import { useGitHubJobService } from './hooks/useGitHubJobService';
 import { useSelector } from 'react-redux';
-import { RootState } from './reducer';
 import StyledApp from './styled';
+import { RootState } from './reducers/types';
 
 function App() {
-  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+  const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
   const { searchJobs } = useGitHubJobService();
 
   useEffect(() => {

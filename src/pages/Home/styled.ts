@@ -11,6 +11,9 @@ const StyledHome = styled.div`
   flex-grow: 1;
   padding: 0 9vw 5vh;
   margin: 0 auto;
+  @media (max-width: 600px) {
+    padding: 0 3vw 5vh;
+  }
   `;
 
 export default StyledHome;

@@ -10,11 +10,13 @@ import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import Spinner from '../../components/Button/Spinner';
 import NotFound from '../../components/NotFound/NotFound';
+import { useSelector } from 'react-redux';
 
 
 export default function Home() {  
   const { jobs, searchMoreJobs, isLoading } = useGitHubJobService(); 
   const isFullPage = jobs.length > 0 && jobs.length % 50 === 0;
+  
   
   return (
     <StyledHome>

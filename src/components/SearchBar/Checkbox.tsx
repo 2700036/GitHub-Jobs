@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useActions } from '../../hooks/useActions';
 import check from '../../images/desktop/icon-check.svg';
-import { RootState } from '../../reducer';
+import { RootState } from '../../reducers/types';
 import { StyledCheckbox, StyledCheckboxProps } from './styled';
 
 interface CheckboxProps extends StyledCheckboxProps {

@@ -4,11 +4,11 @@ import sun from '../../images/desktop/icon-sun.svg';
 import moon from '../../images/desktop/icon-moon.svg';
 import StyledHeader from './styled';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../reducer';
 import { useActions } from '../../hooks/useActions';
+import { RootState } from '../../reducers/types';
 
 export default function Header() {
-  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+    const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
   const { handleThemeChange } = useActions();
   return (
     <StyledHeader isThemeDark={isThemeDark}>

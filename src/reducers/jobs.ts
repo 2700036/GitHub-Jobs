@@ -1,16 +1,10 @@
-import { JobsActionTypes, FieldInfo, Jobs } from './types';
+import { FieldInfo } from "../types";
 
-
-interface Action {
-  type: string;
-  payload: Jobs | FieldInfo;
-}
 const isFieldInfo = (payload: any): payload is FieldInfo => {
   return (<FieldInfo>payload).field !== undefined && (<FieldInfo>payload).value !== undefined;
 };
 
-const initialState = {
-  isThemeDark: !!localStorage.getItem('isThemeDark') || false,
+const initialState = { 
   description: localStorage.getItem('description') || '',
   location: localStorage.getItem('location') || '',
   fullTime: !!localStorage.getItem('fullTime') || false,
@@ -19,11 +13,8 @@ const initialState = {
   isLoading: false,
 };
 
-export default (state = initialState, { type, payload }: any) => {
-  console.log(type)
-  switch (type) {
-    case 'TOGGLE_THEME':
-      return { ...state, isThemeDark: !state.isThemeDark };
+export default (state = initialState, { type, payload }: any) => {  
+  switch (type) {    
     case 'JOBS_START_FETCHING':
       return { ...state, isLoading: true };
     case 'JOBS_STOP_FETCHING':
@@ -48,12 +39,4 @@ export default (state = initialState, { type, payload }: any) => {
   }
 };
 
-export type RootState = {
-  description: string;
-  location: string;
-  fullTime: boolean;
-  page: number;
-  jobs: Jobs;
-  isLoading: boolean;
-  isThemeDark: boolean;
-};
+

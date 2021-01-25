@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../reducer';
+import { RootState } from '../reducers/types';
+
 import {
   JobsActionTypes,
   JOBS_START_FETCHING,
@@ -16,7 +17,7 @@ import {
 } from '../types';
 
 export const useActions = () => {
-  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+    const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
   const dispatch = useDispatch();
   const jobsStartFetching = (): JobsActionTypes =>
     dispatch({

@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import arrow from '../../images/up-arrow.svg';
-import { RootState } from '../../reducer';
+import { RootState } from '../../reducers/types';
 import { StyledBackToTopButton } from './styled';
 
 export default function BackToTopButton() {
   const button = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const isThemeDark: boolean = useSelector(({ isThemeDark }: RootState) => isThemeDark);
+    const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
 
   useEffect(() => {
     function updateScrollHeight() {

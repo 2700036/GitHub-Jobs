@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux';
 import { useActions } from '../../hooks/useActions';
 import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import Arrow from '../../Icons/Arrow';
-import { RootState } from '../../reducer';
+import { RootState } from '../../reducers/types';
 import Button from '../Button/Button';
 import Checkbox from './Checkbox';
 import { StyledSearchBar } from './styled';
 
 export default function SearchBar() {
-  const { description, location, fullTime, isLoading, isThemeDark } = useSelector(
-    (state: RootState) => state
+  const { description, location, fullTime, isThemeDark, isLoading } = useSelector(
+    ({jobs, app}: RootState) => ({...jobs, ...app})
   );
   const [isOpen, setIsOpen] = useState(false);
   const { updateSearchField } = useActions();

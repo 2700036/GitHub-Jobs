@@ -1,16 +1,17 @@
 import { Jobs, JobsActionTypes } from './../types';
-import { RootState } from './../reducer';
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import gitHubJobService from '../services/gitHubJobService';
 import { useActions } from './useActions';
+import { RootState } from '../reducers/types';
 
 type ActionCreator = (payload: Jobs) => JobsActionTypes;
 type HandleSearchJobs = (actionCreator: ActionCreator, isNewSearch?: boolean) => void;
 
 export const useGitHubJobService = (a: void) => {
   const { description, location, fullTime, page, jobs, isLoading } = useSelector(
-    (state: RootState) => state
+    ({jobs, app}: RootState) => ({...jobs, ...app})
   );
   const {
     jobsStartFetching,
