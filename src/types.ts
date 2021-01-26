@@ -65,4 +65,5 @@ export type JobsActionTypes =
   | fulltimeSwitchAction
   | inreasePageAction
   | resetPageAction
-  | toggleThemeAction;
+
+export type AppActionTypes = toggleThemeAction;

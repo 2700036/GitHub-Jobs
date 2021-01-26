@@ -14,6 +14,7 @@ import {
   INREASE_PAGE,
   RESET_PAGE,
   TOGGLE_THEME,
+  AppActionTypes,
 } from '../types';
 
 export const useActions = () => {
@@ -54,7 +55,7 @@ export const useActions = () => {
     dispatch({
       type: RESET_PAGE,
     });
-  const toggleTheme = (): JobsActionTypes =>
+  const toggleTheme = (): AppActionTypes =>
     dispatch({
       type: TOGGLE_THEME,
     });

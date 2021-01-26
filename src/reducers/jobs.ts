@@ -1,4 +1,5 @@
-import { FieldInfo } from "../types";
+import { FieldInfo, JobsActionTypes } from "../types";
+import { ReducersTypes } from "./types";
 
 const isFieldInfo = (payload: any): payload is FieldInfo => {
   return (<FieldInfo>payload).field !== undefined && (<FieldInfo>payload).value !== undefined;
@@ -13,16 +14,16 @@ const initialState = {
   isLoading: false,
 };
 
-const jobs = (state = initialState, { type, payload }: any) => {  
-  switch (type) {    
+const jobs = (state = initialState, action: JobsActionTypes): ReducersTypes => {  
+  switch (action.type) {    
     case 'JOBS_START_FETCHING':
       return { ...state, isLoading: true };
     case 'JOBS_STOP_FETCHING':
       return { ...state, isLoading: false };
     case 'JOBS_FILL':
-      return { ...state, jobs: payload };
+      return { ...state, jobs: action.payload };
     case 'JOBS_FILL_MORE':
-      return { ...state, jobs: [...state.jobs, ...payload] };
+      return { ...state, jobs: [...state.jobs, ...action.payload] };
     case 'FULLTIME_SWITCH':      
       return { ...state, fullTime: !state.fullTime };
     case 'INREASE_PAGE':      
@@ -30,9 +31,9 @@ const jobs = (state = initialState, { type, payload }: any) => {
     case 'RESET_PAGE':          
       return { ...state, page: 1 };
     case 'UPDATE_SEARCH_VALUE':      
-      if (!isFieldInfo(payload)) return state;
-      const field: string = payload.field;      
-      return { ...state, [field]: payload.value };
+      if (!isFieldInfo(action.payload)) return state;
+      const field: string = action.payload.field;      
+      return { ...state, [field]: action.payload.value };
 
     default:
       return state;

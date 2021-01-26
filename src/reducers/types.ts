@@ -1,5 +1,7 @@
 import { Jobs } from "../types";
 
+type ValueOf<T> = T[keyof T];
+
 export type RootState = {
   jobs: {
   description: string;
@@ -10,7 +12,8 @@ export type RootState = {
   isLoading: boolean;
   },
   app: {
-    isThemeDark: boolean;
-    
+    isThemeDark: boolean;    
   }
 };
+
+export type ReducersTypes = ValueOf<RootState>;
