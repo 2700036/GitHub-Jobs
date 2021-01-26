@@ -1,4 +1,4 @@
-import { JobType, Jobs } from './../types';
+import { Jobs } from './../types';
 import { baseUrl } from '../constants/constants';
 import { GetJobs, GitHubJobServiceInterface } from './types';
 

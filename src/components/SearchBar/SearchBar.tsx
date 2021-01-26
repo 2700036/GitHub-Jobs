@@ -8,10 +8,14 @@ import Button from '../Button/Button';
 import Checkbox from './Checkbox';
 import { StyledSearchBar } from './styled';
 
-export default function SearchBar() {
-  const { description, location, fullTime, isThemeDark, isLoading } = useSelector(
-    ({jobs, app}: RootState) => ({...jobs, ...app})
-  );
+export default function SearchBar(): JSX.Element {
+  const {
+    description,
+    location,
+    fullTime,
+    isThemeDark,
+    isLoading,
+  } = useSelector(({ jobs, app }: RootState) => ({ ...jobs, ...app }));
   const [isOpen, setIsOpen] = useState(false);
   const { updateSearchField } = useActions();
 
@@ -19,7 +23,7 @@ export default function SearchBar() {
   const handleInput = (target: HTMLInputElement): void => {
     updateSearchField({ field: target.name, value: target.value });
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setIsOpen(false);
     searchJobs();
@@ -28,8 +32,8 @@ export default function SearchBar() {
   return (
     <StyledSearchBar
       isOpen={isOpen}
-      onSubmit={handleSubmit}
       isThemeDark={isThemeDark}
+      onSubmit={handleSubmit}
       disabled={isLoading}
       autoComplete='off'
     >

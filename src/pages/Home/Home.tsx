@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Button from '../../components/Button/Button';
 import JobItem from '../../components/JobItem/JobItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -10,7 +10,7 @@ import { useGitHubJobService } from '../../hooks/useGitHubJobService';
 import BackToTopButton from '../../components/BackToTopButton/BackToTopButton';
 import Spinner from '../../components/Button/Spinner';
 import NotFound from '../../components/NotFound/NotFound';
-import { useSelector } from 'react-redux';
+
 
 
 export default function Home() {  

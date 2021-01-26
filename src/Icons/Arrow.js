@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import colors from "../constants/colors";
+import styled from "styled-components";
 
 export const SArrow = styled.div`
     display: flex;            

@@ -1,7 +1,5 @@
 import { Jobs, JobsActionTypes } from './../types';
-
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import gitHubJobService from '../services/gitHubJobService';
 import { useActions } from './useActions';
 import { RootState } from '../reducers/types';

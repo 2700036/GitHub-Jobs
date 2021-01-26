@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
-import gitHubJobService from './services/gitHubJobService';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import JobDetails from './pages/JobDetails/JobDetails';
 import { useGitHubJobService } from './hooks/useGitHubJobService';

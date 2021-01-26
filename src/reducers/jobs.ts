@@ -13,7 +13,7 @@ const initialState = {
   isLoading: false,
 };
 
-export default (state = initialState, { type, payload }: any) => {  
+const jobs = (state = initialState, { type, payload }: any) => {  
   switch (type) {    
     case 'JOBS_START_FETCHING':
       return { ...state, isLoading: true };
@@ -39,4 +39,5 @@ export default (state = initialState, { type, payload }: any) => {
   }
 };
 
+export default jobs;
 

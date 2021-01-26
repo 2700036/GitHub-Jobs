@@ -8,6 +8,7 @@ export default function BackToTopButton() {
   const button = useRef<HTMLButtonElement>(null);
   const [isVisible, setIsVisible] = useState(false);
     const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
+    const scrollToTop: () => void = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   useEffect(() => {
     function updateScrollHeight() {
@@ -37,7 +38,7 @@ export default function BackToTopButton() {
       isThemeDark={isThemeDark}
       ref={button}
       aria-label='Button to scroll back to top of page'
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={scrollToTop}
     >
       <img src={arrow} alt='' />
     </StyledBackToTopButton>
