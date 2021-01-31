@@ -1,11 +1,12 @@
-import { FieldInfo, FULLTIME_SWITCH, INREASE_PAGE, JobsActionTypes, JOBS_FILL, JOBS_FILL_MORE, JOBS_START_FETCHING, JOBS_STOP_FETCHING, RESET_PAGE, UPDATE_SEARCH_VALUE } from "../types";
-import { ReducersTypes } from "./types";
+import { FieldInfo, FULLTIME_SWITCH, INREASE_PAGE, Jobs, JobsActionTypes, JOBS_FILL, JOBS_FILL_MORE, JOBS_START_FETCHING, JOBS_STOP_FETCHING, RESET_PAGE, UPDATE_SEARCH_VALUE } from "../types";
+import { JobsState } from "./types";
 
-const isFieldInfo = (payload: any): payload is FieldInfo => {
-  return (<FieldInfo>payload).field !== undefined && (<FieldInfo>payload).value !== undefined;
-};
 
-const initialState = { 
+// const isFieldInfo = (payload: any): payload is FieldInfo => {
+//   return (<FieldInfo>payload).field !== undefined && (<FieldInfo>payload).value !== undefined;
+// };
+
+const initialState: JobsState = { 
   description: localStorage.getItem('description') || '',
   location: localStorage.getItem('location') || '',
   fullTime: !!localStorage.getItem('fullTime') || false,
@@ -14,7 +15,7 @@ const initialState = {
   isLoading: false,
 };
 
-const jobs = (state = initialState, action: JobsActionTypes): ReducersTypes => {  
+const jobs = (state = initialState, action: JobsActionTypes): JobsState => {  
   switch (action.type) {    
     case JOBS_START_FETCHING:
       return { ...state, isLoading: true };
@@ -30,8 +31,7 @@ const jobs = (state = initialState, action: JobsActionTypes): ReducersTypes => {
       return { ...state, page: ++state.page };
     case RESET_PAGE:          
       return { ...state, page: 1 };
-    case UPDATE_SEARCH_VALUE:      
-      if (!isFieldInfo(action.payload)) return state;
+    case UPDATE_SEARCH_VALUE: 
       const field: string = action.payload.field;      
       return { ...state, [field]: action.payload.value };
 

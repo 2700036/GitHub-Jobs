@@ -1,11 +1,11 @@
 import { AppActionTypes } from "../types";
-import { ReducersTypes } from "./types";
+import { AppState } from "./types";
 
-const initialState = {
+const initialState: AppState = {
   isThemeDark: !!localStorage.getItem('isThemeDark') || false, 
 };
 
-const app = (state = initialState, action: AppActionTypes): ReducersTypes => {  
+const app = (state = initialState, action: AppActionTypes): AppState => {  
   switch (action.type) {
     case 'TOGGLE_THEME':
       return { ...state, isThemeDark: !state.isThemeDark };   

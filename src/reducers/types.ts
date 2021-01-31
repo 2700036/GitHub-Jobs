@@ -1,19 +1,20 @@
+import { reducer } from ".";
 import { Jobs } from "../types";
 
-type ValueOf<T> = T[keyof T];
+export type AppState = {  
+  isThemeDark: boolean, 
+}
 
-export type RootState = {
-  jobs: {
-  description: string;
-  location: string;
-  fullTime: boolean;
-  page: number;
-  jobs: Jobs;  
-  isLoading: boolean;
-  },
-  app: {
-    isThemeDark: boolean;    
-  }
-};
+export type JobsState = {  
+  description: string,
+  location: string,
+  fullTime: boolean,
+  page: number,
+  jobs: Jobs,
+  isLoading: boolean, 
+}
 
-export type ReducersTypes = ValueOf<RootState>;
+export type RootState = ReturnType<typeof reducer>;
+
+// type ValueOf<T> = T[keyof T];
+// type ReducersTypes = ValueOf<RootState>;

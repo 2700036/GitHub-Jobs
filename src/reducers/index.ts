@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import jobs from "./jobs";
 import app from "./app";
 
-export default combineReducers({
+export const reducer = combineReducers({
   jobs,
   app
 });

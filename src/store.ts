@@ -1,5 +1,5 @@
 import { compose, createStore } from "redux";
-import reducer from "./reducers";
+import {reducer} from "./reducers";
 
 declare global {
   interface Window {
