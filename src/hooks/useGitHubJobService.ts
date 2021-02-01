@@ -21,11 +21,11 @@ export const useGitHubJobService = (a: void) => {
   } = useActions();
 
   const handleSearchJobs: HandleSearchJobs = (actionCreator, isNewSearch) => {
-    if (isNewSearch) jobsFill([]);
     jobsStartFetching();
     gitHubJobService
       .getJobs({ description, location, fullTime, page: isNewSearch ? 1 : page })
       .then((res) => {
+    if (isNewSearch) jobsFill([]);
         if (res.length >= 50) inreasePage();
         actionCreator(res);
       })

@@ -5,9 +5,10 @@ import { StyledCheckbox, StyledCheckboxProps } from './styled';
 
 interface CheckboxProps extends StyledCheckboxProps {
   children?: string;
+  
 }
 
-export default function Checkbox({ checked, children }: CheckboxProps) {
+export default function Checkbox({ checked, disabled, children }: CheckboxProps) {
   const { toggleFulltime } = useActions();
 
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Checkbox({ checked, children }: CheckboxProps) {
   }, [checked])
 
   return (
-    <StyledCheckbox {...{ checked }}>
+    <StyledCheckbox {...{ checked, disabled }}>
       <span onClick={toggleFulltime}>
         <img src={check} alt='Checkmark' />
       </span>

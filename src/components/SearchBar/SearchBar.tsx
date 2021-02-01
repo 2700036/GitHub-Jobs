@@ -33,12 +33,12 @@ export default function SearchBar(): JSX.Element {
     <StyledSearchBar
       isOpen={isOpen}
       isThemeDark={isThemeDark}
-      onSubmit={handleSubmit}
-      disabled={isLoading}
+      onSubmit={handleSubmit}      
       autoComplete='off'
     >
       <div className='search__bar__description form__control'>
         <input
+          disabled={isLoading}
           placeholder='Filter by title, expertise...'
           aria-label='Enter company, title, or expertise here'
           name='description'
@@ -63,6 +63,7 @@ export default function SearchBar(): JSX.Element {
       <div className='search__bar--inner'>
         <div className='search__bar__location form__control'>
           <input
+          disabled={isLoading}
             placeholder='Filter by location...'
             aria-label='Enter desired job location'
             name='location'
@@ -70,7 +71,7 @@ export default function SearchBar(): JSX.Element {
             value={location}
           />
         </div>
-        <Checkbox checked={fullTime}>Full Time</Checkbox>
+        <Checkbox checked={fullTime} disabled={isLoading}>Full Time</Checkbox>
       </div>
       <Button isLoading={isLoading} icon={<Arrow />} size='m'>
         Search

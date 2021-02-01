@@ -5,9 +5,7 @@ import colors from '../../constants/colors';
 
 interface StyledSearchBarProps {
   readonly isOpen: boolean;
-  readonly isThemeDark: boolean;
-  disabled: boolean;
-  
+  readonly isThemeDark: boolean;  
 };
 
 const StyledSearchBar = styled.form<StyledSearchBarProps>`
@@ -136,7 +134,8 @@ const StyledSearchBar = styled.form<StyledSearchBarProps>`
 `;
 
 export interface StyledCheckboxProps {
-  checked: boolean;    
+  checked: boolean;  
+  disabled?: boolean;  
 }
 
 const StyledCheckbox = styled.div<StyledCheckboxProps>`
@@ -145,6 +144,7 @@ const StyledCheckbox = styled.div<StyledCheckboxProps>`
   font-size: 15px;
   margin: 0 10px;
   width: 35%;
+  pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
   & small {
     cursor: pointer;
   }
