@@ -15,7 +15,7 @@ import { RootState } from '../../reducers/types';
 
 export default function JobDetails({ match }: Props) {
   const { jobs, isLoading } = useGitHubJobService();
-    const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
+  const isThemeDark: boolean = useSelector(({ app }: RootState) => app.isThemeDark);
   const jobID: string = match.params.jobID;
   const job: JobType | undefined = jobs.find(({ id }) => id === jobID);
 
@@ -37,8 +37,8 @@ export default function JobDetails({ match }: Props) {
 
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
-});
+    behavior: 'smooth',
+  });
 
   return (
     <>
